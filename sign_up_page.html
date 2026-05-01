@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="first_page.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
+  
+</head>
+<body class="d-flex flex-column min-vh-100">
+  <nav class = "container-fluid for width: 100%">
+            <ul>
+                <li><a href="first_page.html">Home</a></li>
+                <li class="get_in"><a href="leaderboards_page.html">LeaderBoards</a></li>
+                <li class="get_in"><a href="login_page.html">Log in</a></li>
+                <li id="sign_up"><a href="sign_up_page.html">Sign Up</a></li>
+                <li id="batman"><a class = "nav-link" href="batman.html">produced by<br>team_13</a></li>
+            </ul>
+        </nav>
+  </nav>
+  <div class="d-flex justifyd-flex justify-content-center align-items-center flex-grow-1">
+      <div class="w-100" style="max-width: 450px;"> 
+        <form action="#" class="p-4 rounded shadow bg-body" data-bs-theme="dark" style="max-width: auto; margin: auto;">
+            <legend class="text-light">Sign up for Faster!</legend>
+            <div class="mb-3">    
+                <label for="username" class="form-label text-light">Username</label>
+                <input type="text" class="form-control" id="username" data-bs-theme = "dark" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label for="email1" class="form-label text-light">Email</label>
+                <input type="email" class="form-control" id="email1" data-bs-theme="dark" placeholder="Email">
+            </div>
+            <div class="mb-3">
+                <label for="pass1" class="form-label text-light">Password</label>
+                <input type="password" class="form-control" id="pass1" data-bs-theme="dark" placeholder="Password">
+            </div>
+            <div class="mb-3">
+                <label for="pass2" class="form-label text-light">Confirm Password</label>
+                <input type="password" class="form-control" id="pass2" data-bs-theme="dark" placeholder="Confirm Password">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-light w-100">Sign Up!</button>
+            </div>
+            <div class="mt-3 text-end">
+                <p class="text-light"><a href="login_page.html">Already have an account?</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

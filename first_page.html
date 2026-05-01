@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1WEB3</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"/>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" , href="first_page.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet">
+  </head>
+  <body>
+    <nav class="container-fluid for width: 100%">
+      <ul>
+        <li><a href="first_page.html">Home</a></li>
+        <li class="get_in">
+          <a href="leaderboards_page.html">LeaderBoards</a>
+        </li>
+        <li class="get_in"><a href="login_page.html">Log in</a></li>
+        <li><a href="sign_up_page.html">Sign Up</a></li>
+        <li id="batman">
+          <a class="nav-link">produced by<br />team_13</a>
+        </li>
+      </ul>
+    </nav>
+    <br>
+    <header>
+      <a>
+        <h1>Faster</h1>
+        <h2>.com</h2></a>
+      </header>
+      <br><br><br><br>
+        <section class="type_this d-flex justify-content-center">
+            <div class="card w-50">
+                <div class="card-body bg-dark">
+                    Type everything you see
+                </div>
+            </div>
+        </section>
+            
+        <section class="text-center">
+                <input 
+                    type="text" 
+                    class="form-control w-50 mx-auto" 
+                    placeholder="Start typing...Faster!">
+        </section>
+        <button 
+            class="btn btn-secondary offcanvas-trigger" 
+            type="button" 
+            data-bs-toggle="offcanvas" 
+            data-bs-target="#customPanel">
+                Customize your Game
+        </button>
+        
+        <div class="offcanvas offcanvas-end" 
+             tabindex="-1" 
+             id="customPanel"
+             data-bs-theme="dark">
+            <div class="offcanvas-header">
+            <h5 class="offcanvas-title">
+                Customize your Game</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        
+        <div class="offcanvas-body" data-bs-theme="dark">
+          <form data-bs-theme="dark">
+            <fieldset>
+              <legend>Select your options<br>to play your way!</legend>
+                <br>
+                <br>
+                <br>
+                <div class="mb-3">
+                  <label for="disabledSelect" 
+                         class="form-label">Select your Language</label>
+                  <select 
+                    id="disabledSelect" 
+                    class="form-select">
+                    <option value="" disabled selected hidden></option>
+                    <option value="english">English</option>
+                    <option value="greek">Greek</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="swedish">Swedish</option>
+                  </select>
+                </div>
+                <br>
+                <br>
+                <div class="mb-3">
+                  <label for="disabledSelect" 
+                         class="form-label">Select text type</label>
+                  <select 
+                    id="disabledSelect" 
+                    class="form-select">
+                    <option value="" disabled selected hidden></option>
+                    <option value="quotes">Quotes</option>
+                    <option value="random">Random Text</option>
+                    <option value="literature">Literature</option>
+                  </select>
+                </div>
+                <br>
+                <br>
+                <div class="mb-3">
+                  <label for="disabledSelect" 
+                         class="form-label">Select difficulty</label>
+                  <select 
+                    id="disabledSelect" 
+                    class="form-select">
+                    <option value="" disabled selected hidden></option>
+                    <option value="noob">Noob</option>
+                    <option value="intermidiate">Intermidiate</option>
+                    <option value="pro">Pro</option>
+                  </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Start the Game!</button>
+            </fieldset>
+
+          </form>
+        </div>
+</div>
+
+  </body>
+</html>
