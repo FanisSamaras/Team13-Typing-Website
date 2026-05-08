@@ -1,0 +1,12 @@
+{
+  "name": "typing-website",
+  "version": "1.0.0",
+  "description": "Typing speed test website",
+  "main": "server/program.js",
+  "scripts": {
+    "start": "node server/program.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
