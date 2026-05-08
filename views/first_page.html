@@ -34,14 +34,15 @@
         </li>
       </ul>
     </nav>
-    <br>
     <header>
       <a>
         <h1>Faster</h1>
         <h2>.com</h2></a>
       </header>
-      <br><br><br><br>
-        <section class="type_this d-flex justify-content-center">
+      <div class="restart-wrapper">
+        <button id="restartButton" class="btn btn-outline-light restart-button" type="button">Restart</button>
+      </div>
+      <section class="type_this d-flex justify-content-center">
             <div class="card w-50">
                 <div class="card-body bg-dark" id="text">
                     Type everything you see
@@ -81,43 +82,40 @@
                 <br>
                 <br>
                 <div class="mb-3">
-                  <label for="disabledSelect" 
+                  <label for="languageSelect" 
                          class="form-label">Select your Language</label>
                   <select 
-                    id="disabledSelect" 
+                    id="languageSelect" 
                     class="form-select">
-                    <option value="" disabled selected hidden></option>
-                    <option value="english">English</option>
+                    <option value="" disabled hidden></option>
+                    <option value="english" selected>English</option>
                     <option value="greek">Greek</option>
-                    <option value="arabic">Arabic</option>
-                    <option value="swedish">Swedish</option>
                   </select>
                 </div>
                 <br>
                 <br>
                 <div class="mb-3">
-                  <label for="disabledSelect" 
+                  <label for="modeSelect" 
                          class="form-label">Select text type</label>
                   <select 
-                    id="disabledSelect" 
+                    id="modeSelect" 
                     class="form-select">
-                    <option value="" disabled selected hidden></option>
+                    <option value="" disabled hidden></option>
                     <option value="quotes">Quotes</option>
-                    <option value="random">Random Text</option>
-                    <option value="literature">Literature</option>
+                    <option value="words" selected>Words</option>
                   </select>
                 </div>
                 <br>
                 <br>
                 <div class="mb-3">
-                  <label for="disabledSelect" 
+                  <label for="difficultySelect" 
                          class="form-label">Select difficulty</label>
                   <select 
-                    id="disabledSelect" 
+                    id="difficultySelect" 
                     class="form-select">
-                    <option value="" disabled selected hidden></option>
+                    <option value="" disabled hidden></option>
                     <option value="noob">Noob</option>
-                    <option value="intermidiate">Intermidiate</option>
+                    <option value="intermediate" selected>Intermediate</option>
                     <option value="pro">Pro</option>
                   </select>
                 </div>

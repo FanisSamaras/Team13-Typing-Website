@@ -109,17 +109,42 @@ button{
     border-radius: 0 0 12px 12px !important;
 }
 
+.restart-button {
+    border-radius: 12px !important;
+}
+
 .offcanvas-trigger {
     position: fixed;
-    right: -130px; /* tucks it into the wall so only the text peeks out */
+    right: 0;
     top: 50%;
-    transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%);
     z-index: 1000;
-    padding: 0.4rem 1rem;
-    font-size: 2rem;
-    letter-spacing: 2px;
-    border-radius: 4px 4px 0 0;
+    padding: 0.75rem 0.8rem;
+    font-size: 1rem;
+    letter-spacing: 0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    border-radius: 12px !important;
     cursor: pointer;
+}
+
+.offcanvas {
+    width: 320px;
+    max-width: 90vw;
+}
+
+.restart-wrapper {
+    max-width: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#restartButton {
+    position: relative;
+    margin: 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
 }
 
 #Logo {

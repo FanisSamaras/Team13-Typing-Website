@@ -23,9 +23,25 @@ app.get('/signup', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/sign_up_page.html'));
 });
 
+const languageMap = {
+  english: 'en',
+  greek: 'el',
+};
+
 // API to get quotes
 app.get('/api/quotes', (req, res) => {
   res.sendFile(path.join(__dirname, 'data/quotes.json'));
+});
+
+app.get('/api/words/:lang', (req, res) => {
+  const selectedLang = req.params.lang.toLowerCase();
+  const fileCode = languageMap[selectedLang];
+
+  if (!fileCode) {
+    return res.status(400).json({ error: 'Unsupported language for words mode.' });
+  }
+
+  res.sendFile(path.join(__dirname, 'data', `${fileCode}.json`));
 });
 
 app.listen(port, () => {
