@@ -2,6 +2,7 @@
   "name": "typing-website",
   "version": "1.0.0",
   "description": "Typing speed test website",
+  "type": "module",
   "main": "server/program.js",
   "scripts": {
     "start": "node server/program.js"

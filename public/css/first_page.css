@@ -83,12 +83,7 @@ header a h2 {
     font-size: 1.5rem;
     border: 2px;
     /*font-weight: 700;*/
-    text-shadow: 
-        1px 1px 0 #ffffff,
-       -1px -1px 0 #ffffff,
-        1px -1px 0 #ffffff,
-       -1px  1px 0 #ffffff;
-    color: rgb(82, 78, 78);
+    color: white;
     letter-spacing: 2px;
 }
 

@@ -57,13 +57,18 @@ function filterQuotesByDifficulty(quotes, difficulty) {
 }
 
 function getWordCountForDifficulty(difficulty) {
-  if (difficulty === 'noob') return 3;
-  if (difficulty === 'intermediate') return 5;
-  return 8;
+  if (difficulty === 'noob') return 10;
+  if (difficulty === 'intermediate') return 25;
+  return 50;
+}
+
+function normalizeText(text) {
+  return String(text || '').replace(/\s+/g, ' ').trim();
 }
 
 function getTextForWord(entry) {
-  return entry.targetWord && entry.targetWord.trim() ? entry.targetWord : entry.englishWord;
+  const rawWord = entry.targetWord && entry.targetWord.trim() ? entry.targetWord : entry.englishWord;
+  return normalizeText(rawWord);
 }
 
 function displayRandomQuote() {
@@ -73,7 +78,7 @@ function displayRandomQuote() {
     const filtered = filterQuotesByDifficulty(items, currentDifficulty);
     const activeQuotes = filtered.length ? filtered : items;
     const randomIndex = Math.floor(Math.random() * activeQuotes.length);
-    currentQuote = activeQuotes[randomIndex].text;
+    currentQuote = normalizeText(activeQuotes[randomIndex].text);
   }
   document.getElementById('text').textContent = currentQuote;
   startTime = null;
@@ -90,7 +95,7 @@ function displayRandomWord() {
       const randomIndex = Math.floor(Math.random() * items.length);
       selectedWords.push(getTextForWord(items[randomIndex]));
     }
-    currentQuote = selectedWords.join(' ');
+    currentQuote = normalizeText(selectedWords.join(' '));
   }
   document.getElementById('text').textContent = currentQuote;
   startTime = null;
@@ -104,6 +109,7 @@ function checkTyping() {
   }
 
   const input = document.querySelector('input').value;
+  const normalizedInput = normalizeText(input);
   const textDiv = document.getElementById('text');
   let html = '';
 
@@ -121,7 +127,7 @@ function checkTyping() {
 
   textDiv.innerHTML = html;
 
-  if (input === currentQuote) {
+  if (normalizedInput === currentQuote) {
     const endTime = new Date();
     const timeTaken = (endTime - startTime) / 1000 / 60;
     const wpm = timeTaken > 0 ? Math.round(currentQuote.length / 5 / timeTaken) : 0;
