@@ -1,5 +1,3 @@
-// main.js
-
 let items = [];
 let currentQuote = '';
 let currentMode = 'quotes';
