@@ -5,6 +5,15 @@ let currentLanguage = 'english';
 let currentDifficulty = 'noob';
 let startTime = null;
 let isTyping = false;
+let previousInput = '';
+let totalTypedChars = 0;
+let totalMistakes = 0;
+
+function resetAccuracyTracking() {
+  previousInput = '';
+  totalTypedChars = 0;
+  totalMistakes = 0;
+}
 
 async function loadContent(language, mode, difficulty) {
   currentLanguage = language;
@@ -13,6 +22,7 @@ async function loadContent(language, mode, difficulty) {
   document.querySelector('input').value = '';
   startTime = null;
   isTyping = false;
+  resetAccuracyTracking();
 
   if (mode === 'words') {
     await loadWords(language);
@@ -69,6 +79,41 @@ function getTextForWord(entry) {
   return normalizeText(rawWord);
 }
 
+function trackTyping(input) {
+  const current = String(input || '');
+  const previous = String(previousInput || '');
+
+  if (current === previous) {
+    return;
+  }
+
+  const minLength = Math.min(current.length, previous.length);
+  let firstDiff = 0;
+  while (firstDiff < minLength && current[firstDiff] === previous[firstDiff]) {
+    firstDiff += 1;
+  }
+
+  if (current.length > previous.length) {
+    for (let i = firstDiff; i < current.length; i += 1) {
+      totalTypedChars += 1;
+      if (currentQuote[i] !== current[i]) {
+        totalMistakes += 1;
+      }
+    }
+  } else if (current.length < previous.length) {
+    // Don't reduce mistakes when backspacing; keep the original error count.
+  } else {
+    for (let i = firstDiff; i < current.length; i += 1) {
+      totalTypedChars += 1;
+      if (currentQuote[i] !== current[i]) {
+        totalMistakes += 1;
+      }
+    }
+  }
+
+  previousInput = current;
+}
+
 function displayRandomQuote() {
   if (!items.length) {
     currentQuote = 'No quotes available.';
@@ -107,6 +152,7 @@ function checkTyping() {
   }
 
   const input = document.querySelector('input').value;
+  trackTyping(input);
   const normalizedInput = normalizeText(input);
   const textDiv = document.getElementById('text');
   let html = '';
@@ -129,8 +175,13 @@ function checkTyping() {
     const endTime = new Date();
     const timeTaken = (endTime - startTime) / 1000 / 60;
     const wpm = timeTaken > 0 ? Math.round(currentQuote.length / 5 / timeTaken) : 0;
-    alert(`Finished! WPM: ${wpm}`);
+    const accuracy = totalTypedChars
+      ? Math.max(0, Math.round(((totalTypedChars - totalMistakes) / totalTypedChars) * 100))
+      : 100;
+
+    alert(`Finished! WPM: ${wpm} | Accuracy: ${accuracy}%`);
     document.querySelector('input').value = '';
+    resetAccuracyTracking();
     if (currentMode === 'words') {
       displayRandomWord();
     } else {
@@ -142,6 +193,7 @@ function checkTyping() {
 function restartGame() {
   document.querySelector('input').value = '';
   startTime = null;
+  resetAccuracyTracking();
   if (currentMode === 'words') {
     displayRandomWord();
   } else {
