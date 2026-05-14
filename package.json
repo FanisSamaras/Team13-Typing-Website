@@ -8,7 +8,10 @@
     "start": "node server/program.mjs"
   },
   "dependencies": {
+    "better-sqlite3": "^12.10.0",
+    "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
-    "express-handlebars": "^7.1.0"
+    "express-handlebars": "^7.1.0",
+    "express-session": "^1.17.4"
   }
 }

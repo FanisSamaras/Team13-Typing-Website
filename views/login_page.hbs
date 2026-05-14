@@ -6,38 +6,39 @@
           <p id="Logo">Faster</p>
         </div>
         <div class="p-4 rounded shadow p-3 mb-5 bg-body" data-bs-theme="dark">
-          <form data-bs-theme="dark" style="margin: auto">
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+          <form method="POST" action="/api/login" data-bs-theme="dark" style="margin: auto">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label text-light"
-                >Email</label
-              >
+              <label for="email" class="form-label text-light">Email</label>
               <input
                 type="email"
+                name="email"
                 class="form-control"
-                id="exampleInputEmail1"
+                id="email"
                 placeholder="Email"
+                required
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label text-light"
-                >Password</label
-              >
+              <label for="password" class="form-label text-light">Password</label>
               <input
                 type="password"
+                name="password"
                 class="form-control"
-                id="exampleInputPassword1"
+                id="password"
                 placeholder="Password"
+                required
               />
             </div>
             <div class="mb-3 form-check">
               <input
                 type="checkbox"
                 class="form-check-input"
-                id="exampleCheck1"
+                id="rememberMe"
               />
-              <label class="form-check-label text-light" 
-                     for="exampleCheck1"
-                >Remember me</label>
+              <label class="form-check-label text-light" for="rememberMe">Remember me</label>
             </div>
             <div>
               <button type="submit" class="btn btn-light w-100">Log In</button>

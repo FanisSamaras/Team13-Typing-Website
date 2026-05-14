@@ -20,61 +20,21 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Giorgos</td>
-              <td>120</td>
-              <td>98.55%</td>
-              <td>12.35 sec</td>
-            </tr>
-
-            <tr>
-              <td>2</td>
-              <td>Mhtsos</td>
-              <td>113</td>
-              <td>96.80%</td>
-              <td>13.10 sec</td>
-            </tr>
-
-            <tr>
-              <td>3</td>
-              <td>Maria</td>
-              <td>111</td>
-              <td>95.20%</td>
-              <td>14.05 sec</td>
-            </tr>
-
-            <tr>
-              <td>4</td>
-              <td>Manos</td>
-              <td>101</td>
-              <td>93.75%</td>
-              <td>15.30 sec</td>
-            </tr>
-
-            <tr>
-              <td>5</td>
-              <td>Takhs</td>
-              <td>98</td>
-              <td>91.60%</td>
-              <td>17.00 sec</td>
-            </tr>
-
-            <tr>
-              <td>6</td>
-              <td>Despoina</td>
-              <td>74</td>
-              <td>88.40%</td>
-              <td>19.25 sec</td>
-            </tr>
-
-            <tr>
-              <td>7</td>
-              <td>Sotiris</td>
-              <td>68</td>
-              <td>85.90%</td>
-              <td>21.15 sec</td>
-            </tr>
+            {{#if scores}}
+              {{#each scores}}
+                <tr>
+                  <td>{{rank}}</td>
+                  <td>{{username}}</td>
+                  <td>{{wpm}}</td>
+                  <td>{{acc}}%</td>
+                  <td>{{created_at}}</td>
+                </tr>
+              {{/each}}
+            {{else}}
+              <tr>
+                <td colspan="5" class="text-center">No leaderboard entries yet.</td>
+              </tr>
+            {{/if}}
           </tbody>
         </table>
       </div>

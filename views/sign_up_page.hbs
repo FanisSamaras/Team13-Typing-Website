@@ -1,22 +1,25 @@
   <div class="d-flex justifyd-flex justify-content-center align-items-center flex-grow-1">
       <div class="w-100" style="max-width: 450px;"> 
-        <form action="#" class="p-4 rounded shadow bg-body" data-bs-theme="dark" style="max-width: auto; margin: auto;">
+        {{#if error}}
+          <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+        <form method="POST" action="/api/signup" class="p-4 rounded shadow bg-body" data-bs-theme="dark" style="max-width: auto; margin: auto;">
             <legend class="text-light">Sign up for Faster!</legend>
             <div class="mb-3">    
                 <label for="username" class="form-label text-light">Username</label>
-                <input type="text" class="form-control" id="username" data-bs-theme = "dark" placeholder="Username">
+                <input type="text" name="username" class="form-control" id="username" data-bs-theme = "dark" placeholder="Username" required>
             </div>
             <div class="mb-3">
-                <label for="email1" class="form-label text-light">Email</label>
-                <input type="email" class="form-control" id="email1" data-bs-theme="dark" placeholder="Email">
+                <label for="email" class="form-label text-light">Email</label>
+                <input type="email" name="email" class="form-control" id="email" data-bs-theme="dark" placeholder="Email" required>
             </div>
             <div class="mb-3">
-                <label for="pass1" class="form-label text-light">Password</label>
-                <input type="password" class="form-control" id="pass1" data-bs-theme="dark" placeholder="Password">
+                <label for="password" class="form-label text-light">Password</label>
+                <input type="password" name="password" class="form-control" id="password" data-bs-theme="dark" placeholder="Password" required>
             </div>
             <div class="mb-3">
-                <label for="pass2" class="form-label text-light">Confirm Password</label>
-                <input type="password" class="form-control" id="pass2" data-bs-theme="dark" placeholder="Confirm Password">
+                <label for="confirmPassword" class="form-label text-light">Confirm Password</label>
+                <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" data-bs-theme="dark" placeholder="Confirm Password" required>
             </div>
             <div>
                 <button type="submit" class="btn btn-light w-100">Sign Up!</button>

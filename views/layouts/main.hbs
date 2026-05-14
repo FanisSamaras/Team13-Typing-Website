@@ -27,8 +27,13 @@
         <li class="get_in">
           <a href="/leaderboards">LeaderBoards</a>
         </li>
-        <li class="get_in"><a href="/login">Log in</a></li>
-        <li><a href="/signup">Sign Up</a></li>
+        {{#if user}}
+          <li class="get_in"><a href="/logout">Logout</a></li>
+          <li class="get_in"><span class="text-light">{{user.username}}</span></li>
+        {{else}}
+          <li class="get_in"><a href="/login">Log in</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        {{/if}}
         <li id="batman">
           <a class="nav-link">produced by<br />team_13</a>
         </li>

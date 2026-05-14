@@ -2,7 +2,7 @@ let items = [];
 let currentQuote = '';
 let currentMode = 'quotes';
 let currentLanguage = 'english';
-let currentDifficulty = 'noob';
+let currentDifficulty = 'easy';
 let startTime = null;
 let isTyping = false;
 let previousInput = '';
@@ -58,15 +58,15 @@ function filterQuotesByDifficulty(quotes, difficulty) {
 
   return quotes.filter((quote) => {
     const length = quote.length || quote.text.length || 0;
-    if (difficulty === 'noob') return length <= 55;
-    if (difficulty === 'intermediate') return length <= 100;
-    return true; // pro
+    if (difficulty === 'easy') return length <= 55;
+    if (difficulty === 'medium') return length <= 100;
+    return true; // hard
   });
 }
 
 function getWordCountForDifficulty(difficulty) {
-  if (difficulty === 'noob') return 10;
-  if (difficulty === 'intermediate') return 25;
+  if (difficulty === 'easy') return 10;
+  if (difficulty === 'medium') return 25;
   return 50;
 }
 
@@ -180,6 +180,36 @@ function checkTyping() {
       : 100;
 
     alert(`Finished! WPM: ${wpm} | Accuracy: ${accuracy}%`);
+
+    fetch('/api/score', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        wpm,
+        accuracy,
+        mode: currentMode,
+        difficulty: currentDifficulty,
+      }),
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          const error = await response.json().catch(() => ({}));
+          console.warn('Score not saved:', error.error || response.statusText);
+          return;
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data && data.success) {
+          console.log('Score saved successfully');
+        }
+      })
+      .catch((error) => {
+        console.error('Unable to save score:', error);
+      });
+
     document.querySelector('input').value = '';
     resetAccuracyTracking();
     if (currentMode === 'words') {
@@ -208,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const language = document.getElementById('languageSelect').value || 'english';
     const mode = document.getElementById('modeSelect').value || 'quotes';
-    const difficulty = document.getElementById('difficultySelect').value || 'noob';
+    const difficulty = document.getElementById('difficultySelect').value || 'easy';
     await loadContent(language, mode, difficulty);
     document.querySelector('input').focus();
   });
@@ -223,5 +253,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('restartButton').addEventListener('click', restartGame);
-  loadContent('english', 'words', 'intermediate');
+  loadContent('english', 'words', 'easy');
 });
