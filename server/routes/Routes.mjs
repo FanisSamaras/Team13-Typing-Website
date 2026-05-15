@@ -18,10 +18,10 @@ const setupRoutes = (app) => {
 
   app.get('/leaderboards', (req, res) => {
     const stmt = db.prepare(`
-      SELECT scores.wpm, scores.acc, scores.mode, scores.difficulty, scores.created_at, users.username
+      SELECT scores.wpm, scores.acc, scores.mode, scores.difficulty, users.username
       FROM scores
       JOIN users ON scores.user_id = users.id
-      ORDER BY scores.wpm DESC, scores.acc DESC, scores.created_at ASC
+      ORDER BY scores.wpm DESC, scores.acc DESC
       LIMIT 20
     `);
     const rows = stmt.all().map((row, index) => ({
