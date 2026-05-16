@@ -8,7 +8,9 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS scores (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
-
+    language TEXT NOT NULL CHECK(
+        language IN ('english','greek')
+    ) DEFAULT 'english',
     acc REAL NOT NULL,
     wpm INTEGER NOT NULL,
 

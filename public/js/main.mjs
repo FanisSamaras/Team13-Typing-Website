@@ -191,6 +191,7 @@ function checkTyping() {
         accuracy,
         mode: currentMode,
         difficulty: currentDifficulty,
+        language: currentLanguage,
       }),
     })
       .then(async (response) => {

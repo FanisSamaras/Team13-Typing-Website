@@ -1,0 +1,57 @@
+<div class="container py-5 profile-page">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card profile-header-card mb-4">
+        <div class="card-body text-center">
+          <h2 class="profile-username mb-1">{{username}}</h2>
+          <p class="profile-subtitle mb-0">Typing profile overview</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card profile-stat-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Average Performance</h5>
+              {{#if hasScores}}
+                <p class="display-6 mb-1 profile-value">{{averageWpm}} WPM</p>
+                <p class="fs-5 profile-detail">{{averageAcc}}% Accuracy</p>
+              {{else}}
+                <p class="display-6 mb-1 profile-value">—</p>
+                <p class="fs-5 profile-detail">No scores available yet</p>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card profile-stat-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Best Round</h5>
+              {{#if hasScores}}
+                <p class="display-6 mb-1 profile-value">{{bestWpm}} WPM</p>
+                <p class="fs-5 profile-detail">{{bestAcc}}% Accuracy</p>
+              {{else}}
+                <p class="display-6 mb-1 profile-value">—</p>
+                <p class="fs-5 profile-detail">Play some rounds to record your best stats</p>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{#if hasScores}}
+        <div class="card profile-note-card mt-4">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-2">Your Score Details</h5>
+            <p class="mb-0 profile-note-text">These values are calculated from all recorded rounds.</p>
+          </div>
+        </div>
+      {{/if}}
+
+      <div class="text-center mt-4">
+        <a href="/logout" class="btn logout-btn">Log out</a>
+      </div>
+    </div>
+  </div>
+</div>

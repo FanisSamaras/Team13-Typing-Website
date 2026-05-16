@@ -14,6 +14,7 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous">
     </script>
+    <script src="https://kit.fontawesome.com/a175da0939.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/first_page.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
@@ -23,20 +24,15 @@
   <body{{#unless isHome}} class="d-flex flex-column min-vh-100"{{/unless}}>
     <nav class="container-fluid for width: 100%">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li class="get_in">
-          <a href="/leaderboards">LeaderBoards</a>
+        <li><a href="/" title="Home"><i class="fa-solid fa-house"></i></a></li>
+        <li class="get_in"><a href="/leaderboards" title="Leaderboards"><i class="fa-solid fa-chart-simple"></i></a>
         </li>
         {{#if user}}
-          <li class="get_in"><a href="/logout">Logout</a></li>
-          <li class="get_in"><span class="text-light">{{user.username}}</span></li>
+          {{!-- <li class="get_in"><a href="/logout">Logout</a></li> --}}
+          <li class="get_in" title="User"><a href="/user_page"><i class="fa-solid fa-user"></i>{{user.username}}</a></li>
         {{else}}
-          <li class="get_in"><a href="/login">Log in</a></li>
-          <li><a href="/signup">Sign Up</a></li>
+          <li class="get_in" title="Log in/Sign up"><a href="/login"><i class="fa-solid fa-user"></i></a></li>
         {{/if}}
-        <li id="batman">
-          <a class="nav-link">produced by<br />team_13</a>
-        </li>
       </ul>
     </nav>
     {{{body}}}

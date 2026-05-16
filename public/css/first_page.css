@@ -147,3 +147,65 @@ button{
   font-size: 100px;
   color: rgb(186, 3, 0);
 }
+
+.profile-page {
+  min-height: calc(100vh - 100px);
+}
+
+.profile-header-card {
+  background: rgba(26, 27, 29, 0.96);
+  border: 1px solid rgba(186, 3, 0, 0.45);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.profile-username {
+  font-size: 2.5rem;
+  color: rgb(186, 3, 0);
+}
+
+.profile-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.profile-stat-card {
+  background: rgba(34, 35, 37, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-stat-card .card-title {
+  color: rgb(220, 220, 220);
+}
+
+.profile-value {
+  color: rgb(255, 255, 255);
+}
+
+.profile-detail {
+  color: rgba(255, 255, 255);
+}
+
+.profile-note-card {
+  background: rgba(26, 27, 29, 0.96);
+  border: 1px solid rgba(186, 3, 0, 0.25);
+}
+
+.profile-note-text {
+  color: white;
+}
+
+.logout-btn {
+  background-color: rgb(186, 3, 0);
+  border-color: rgb(186, 3, 0);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.logout-btn:hover,
+.logout-btn:focus {
+  background-color: rgb(220, 40, 40);
+  border-color: rgb(220, 40, 40);
+  color: white;
+}
