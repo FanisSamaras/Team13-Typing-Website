@@ -1,5 +1,6 @@
 let items = [];
 let currentQuote = '';
+let currentQuoteSource = '';
 let currentMode = 'quotes';
 let currentLanguage = 'english';
 let currentDifficulty = 'easy';
@@ -122,6 +123,7 @@ function displayRandomQuote() {
     const activeQuotes = filtered.length ? filtered : items;
     const randomIndex = Math.floor(Math.random() * activeQuotes.length);
     currentQuote = normalizeText(activeQuotes[randomIndex].text);
+    currentQuoteSource = activeQuotes[randomIndex].source || '';
   }
   document.getElementById('text').textContent = currentQuote;
   startTime = null;
@@ -139,6 +141,7 @@ function displayRandomWord() {
       selectedWords.push(getTextForWord(items[randomIndex]));
     }
     currentQuote = normalizeText(selectedWords.join(' '));
+    currentQuoteSource = '';
   }
   document.getElementById('text').textContent = currentQuote;
   startTime = null;
@@ -179,7 +182,9 @@ function checkTyping() {
       ? Math.max(0, Math.round(((totalTypedChars - totalMistakes) / totalTypedChars) * 100))
       : 100;
 
-    alert(`Finished! WPM: ${wpm} | Accuracy: ${accuracy}%`);
+    const sourceParam = currentMode === 'quotes' ? `&source=${encodeURIComponent(currentQuoteSource || '')}` : '';
+    const difficultyParam = `&difficulty=${encodeURIComponent(currentDifficulty)}`;
+    const resultUrl = `/result?mode=${encodeURIComponent(currentMode)}&language=${encodeURIComponent(currentLanguage)}&wpm=${wpm}&accuracy=${accuracy}${difficultyParam}${sourceParam}`;
 
     fetch('/api/score', {
       method: 'POST',
@@ -209,15 +214,10 @@ function checkTyping() {
       })
       .catch((error) => {
         console.error('Unable to save score:', error);
+      })
+      .finally(() => {
+        window.location.href = resultUrl;
       });
-
-    document.querySelector('input').value = '';
-    resetAccuracyTracking();
-    if (currentMode === 'words') {
-      displayRandomWord();
-    } else {
-      displayRandomQuote();
-    }
   }
 }
 

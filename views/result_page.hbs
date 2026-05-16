@@ -1,0 +1,83 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-sm border-secondary bg-dark text-light p-4">
+        <div class="card-body text-center">
+          <h2 class="mb-3">Run Result</h2>
+          <p class="text-muted mb-4">Here are the details from your last run.</p>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-4">
+              <div class="result-card p-3 rounded-3 bg-secondary bg-opacity-25">
+                <h5>WPM</h5>
+                <p class="display-6 mb-0">{{wpm}}</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="result-card p-3 rounded-3 bg-secondary bg-opacity-25">
+                <h5>Accuracy</h5>
+                <p class="display-6 mb-0">{{accuracy}}%</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="result-card p-3 rounded-3 bg-secondary bg-opacity-25">
+                <h5>Mode</h5>
+                <p class="display-6 mb-0 text-capitalize">{{mode}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="result-card p-3 rounded-3 bg-secondary bg-opacity-25">
+                <h6>Language</h6>
+                <p class="mb-0 text-capitalize">{{language}}</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="result-card p-3 rounded-3 bg-secondary bg-opacity-25">
+                <h6>Difficulty</h6>
+                <p class="mb-0 text-capitalize">{{difficulty}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-alert mb-4 p-3 rounded-3 bg-light bg-opacity-10 text-center">
+            <p class="mb-1 {{#unless isLoggedIn}}text-warning{{/unless}}">
+              <strong>{{statusMessage}}</strong>
+            </p>
+            {{#unless isLoggedIn}}
+              <p class="mb-0">
+                <a href="/login" class="text-decoration-underline">Log in</a> now to save your score in your account.
+              </p>
+            {{/unless}}
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-12">
+              <div class="result-card p-3 rounded-3 bg-secondary bg-opacity-25">
+                <h6>Typing Level</h6>
+                <p class="mb-0">{{levelLabel}}</p>
+                <p class="mb-0">{{levelDescription}}</p>
+              </div>
+            </div>
+          </div>
+
+          {{#if showSource}}
+            <div class="card result-card mb-4 bg-secondary bg-opacity-20 border-0">
+              <div class="card-body">
+                <h5 class="card-title">Quote source</h5>
+                <p class="mb-0">{{source}}</p>
+              </div>
+            </div>
+          {{/if}}
+
+          <div class="d-flex justify-content-center gap-3 mt-4">
+            <a href="/" class="btn btn-outline-light">Back to Home</a>
+            <a href="/leaderboards" class="btn btn-outline-light">See Leaderboard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

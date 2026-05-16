@@ -11,6 +11,31 @@ const languageMap = {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = new URL('.', import.meta.url).pathname;
 
+const getTypingLevel = (wpm) => {
+  if (wpm < 30) {
+    return {
+      label: 'Novice',
+      description: 'You are just getting started — keep practicing to build speed and accuracy.',
+    };
+  }
+  if (wpm < 60) {
+    return {
+      label: 'Getting better',
+      description: 'Nice progress! You are improving fast and gaining confidence.',
+    };
+  }
+  if (wpm < 90) {
+    return {
+      label: 'Skilled',
+      description: 'You type solidly and can keep pushing toward advanced speed.',
+    };
+  }
+  return {
+    label: 'Expert',
+    description: 'Excellent work — your typing speed is very strong.',
+  };
+};
+
 const setupRoutes = (app) => {
   // Serve views
   app.get('/', (req, res) => {
@@ -84,6 +109,34 @@ const setupRoutes = (app) => {
       selectedModeQuotes: selectedMode === 'quotes',
       selectedModeWords: selectedMode === 'words',
       selectedModeAll: selectedMode !== 'quotes' && selectedMode !== 'words',
+    });
+  });
+
+  app.get('/result', (req, res) => {
+    const mode = req.query.mode || 'words';
+    const language = req.query.language || 'english';
+    const difficulty = req.query.difficulty || 'easy';
+    const source = req.query.source || '';
+    const wpm = Number(req.query.wpm) || 0;
+    const accuracy = Number(req.query.accuracy) || 0;
+    const isLoggedIn = Boolean(req.session.user);
+    const typingLevel = getTypingLevel(wpm);
+
+    res.render('result_page', {
+      title: 'Result',
+      mode,
+      language,
+      difficulty,
+      source,
+      wpm,
+      accuracy,
+      showSource: mode === 'quotes' && Boolean(source),
+      isLoggedIn,
+      statusMessage: isLoggedIn
+        ? 'Your score was submitted successfully.'
+        : 'You are not logged in, so this score was not saved. Please log in to submit future scores.',
+      levelLabel: typingLevel.label,
+      levelDescription: typingLevel.description,
     });
   });
 
