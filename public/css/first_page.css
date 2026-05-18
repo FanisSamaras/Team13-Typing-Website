@@ -1,3 +1,7 @@
+:root{
+  --color_main : rgb(186, 3, 0);
+}
+
 body{
     min-height: 700px;
     min-width: 600px;
@@ -12,7 +16,10 @@ body{
     padding: 0;
 }
 
-
+#text_input:focus{
+  outline: none !important;
+  box-shadow: none;
+}
 nav{
     background-color: rgb(21,22,23);
     padding: 1rem;
@@ -66,14 +73,14 @@ header a {
 
 header a h1 {
     font-size: 100px;
-    color: rgb(186, 3, 0);
+    color: var(--color_main);
     font-family: "Black Ops One";
     text-decoration: dotted;
 }
 
 header a h2 {
     font-size: 30px;
-    color: rgb(186, 3, 0);
+    color: var(--color_main);
     font-family: "Black Ops One";
 }
 
@@ -145,7 +152,7 @@ button{
 #Logo {
   font-family: "Black Ops One";
   font-size: 100px;
-  color: rgb(186, 3, 0);
+  color: var(--color_main);
 }
 
 .profile-page {
@@ -160,7 +167,7 @@ button{
 
 .profile-username {
   font-size: 2.5rem;
-  color: rgb(186, 3, 0);
+  color: var(--color_main);
 }
 
 .profile-subtitle {
@@ -194,8 +201,8 @@ button{
 }
 
 .logout-btn {
-  background-color: rgb(186, 3, 0);
-  border-color: rgb(186, 3, 0);
+  background-color: var(--color_main);
+  border-color: var(--color_main);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
@@ -208,4 +215,20 @@ button{
   background-color: rgb(220, 40, 40);
   border-color: rgb(220, 40, 40);
   color: white;
+}
+
+.shake-error {
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
 }
