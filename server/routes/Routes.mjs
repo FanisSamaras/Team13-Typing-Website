@@ -15,24 +15,24 @@ const getTypingLevel = (wpm) => {
   if (wpm < 30) {
     return {
       label: 'Novice',
-      description: 'You are just getting started — keep practicing to build speed and accuracy.',
+      description: 'You can only go up from here, keep up the good work!',
     };
   }
   if (wpm < 60) {
     return {
-      label: 'Getting better',
-      description: 'Nice progress! You are improving fast and gaining confidence.',
+      label: 'Intermediate',
+      description: 'You are getting better and it shows.',
     };
   }
   if (wpm < 90) {
     return {
-      label: 'Skilled',
-      description: 'You type solidly and can keep pushing toward advanced speed.',
+      label: 'Advanced',
+      description: 'You are getting pretty good at this just a little more to go.',
     };
   }
   return {
     label: 'Expert',
-    description: 'Excellent work — your typing speed is very strong.',
+    description: 'You are in the 95th percentile in terms of typing speed and are ready for any sort of typing job',
   };
 };
 

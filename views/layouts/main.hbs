@@ -21,7 +21,7 @@
       rel="stylesheet">
     {{#if isHome}}<script src="/js/main.mjs" type="module"></script>{{/if}}
   </head>
-  <body{{#unless isHome}} class="d-flex flex-column min-vh-100"{{/unless}}>
+  <body class="d-flex flex-column min-vh-100">
     <nav class="container-fluid for width: 100%">
       <ul>
         <li><a href="/" title="Home"><i class="fa-solid fa-house"></i></a></li>
@@ -36,5 +36,10 @@
       </ul>
     </nav>
     {{{body}}}
+    <footer class="mt-auto py-3">
+      <div class="container text-center">
+            <a href="https://github.com/FanisSamaras/Team13-Typing-Website" target="_blank"><i class="fa-brands fa-github fa-2x"></i></a>
+      </div>
+    </footer>
   </body>
 </html>
