@@ -5,7 +5,6 @@
 body{
     min-height: 700px;
     min-width: 600px;
-    /* background: linear-gradient(to right, black, #7a7a8d);  */
     background-color: rgb(48,50,52);
     background-attachment: fixed;
     background-repeat: no-repeat;

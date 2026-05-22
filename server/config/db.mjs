@@ -13,10 +13,5 @@ const schema = fs.readFileSync(schemaPath, "utf-8");
 
 db.exec(schema);
 
-const scoreColumns = db.prepare("PRAGMA table_info(scores)").all();
-const hasLanguageColumn = scoreColumns.some((column) => column.name === 'language');
-if (!hasLanguageColumn) {
-  db.prepare("ALTER TABLE scores ADD COLUMN language TEXT NOT NULL DEFAULT 'english'").run();
-}
 
 export default db;
