@@ -54,7 +54,7 @@ npm run dev
 npm start 
 ```
 
-Now the website should be available at <a target="_black" href = "https://localhost:3000">https://localhost:3000</a> 
+Now the website should be available at [localhost:3000](https://localhost:3000)
 
 ## Repository Structure ##
 ```bash
@@ -98,7 +98,7 @@ Team13-Typing-Website/
 ###  Frontend ###
 
 - Build with Javascript + Handlebars + Bootstrap + CSS
-- Connects to SQLite local database for user registration and access and score submission
+- Connects to SQLite local database for user registration and score submission
 
 ### Backend ###
 
