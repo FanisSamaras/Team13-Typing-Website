@@ -10,9 +10,12 @@
 ## Installation guide ##
 
 ### Prerequisites ###
-
+<!-- 
 - <a target="_black" href = "https://nodejs.org">Node js</a> 24+ 
-- <a target="_black" href = "https://git-scm.com/">git</a> 
+- <a target="_black" href = "https://git-scm.com/">git</a>  -->
+
+[nodejs](https://nodejs.org) 24+
+[git](https://git-scm.com)
 
 ### Setting up the website ###
 
@@ -34,7 +37,7 @@ cd .\Team13-Typing-Website\ && npm install
 cp .env.example .env
 ```
 
-\tUpdate the `.env` with your config:
+Update the `.env` with your config:
 
 - Session Secret
 
