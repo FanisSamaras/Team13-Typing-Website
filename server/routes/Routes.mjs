@@ -36,6 +36,14 @@ const getTypingLevel = (wpm) => {
   };
 };
 
+const getRequestedLanguage = (req, defaultLang = 'english') => {
+  const requested = (req.params.lang || req.query.lang || req.query.language || defaultLang).toLowerCase();
+  if (requested === 'el' || requested === 'greek') {
+    return 'greek';
+  }
+  return 'english';
+};
+
 const setupRoutes = (app) => {
   // Serve views
   app.get('/', (req, res) => {
@@ -220,18 +228,15 @@ const setupRoutes = (app) => {
 
   // API to get quotes
   app.get('/api/quotes/:lang?', (req, res) => {
-    const requested = (req.params.lang || req.query.lang || req.query.language || 'en').toLowerCase();
-    let fileName = 'quotes_en.json';
-    if (requested === 'el' || requested === 'greek') {
-      fileName = 'quotes_el.json';
-    }
+    const requested = getRequestedLanguage(req, 'english');
+    const fileName = requested === 'greek' ? 'quotes_el.json' : 'quotes_en.json';
     const filePath = fileURLToPath(new URL(`../data/${fileName}`, import.meta.url));
     res.sendFile(filePath);
   });
 
-  app.get('/api/words/:lang', (req, res) => {
-    const selectedLang = req.params.lang.toLowerCase();
-    const fileCode = languageMap[selectedLang];
+  app.get('/api/words/:lang?', (req, res) => {
+    const requested = getRequestedLanguage(req, 'english');
+    const fileCode = languageMap[requested];
 
     if (!fileCode) {
       return res.status(400).json({ error: 'Unsupported language for words mode.' });
