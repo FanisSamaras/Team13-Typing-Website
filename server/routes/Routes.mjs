@@ -39,7 +39,7 @@ const getTypingLevel = (wpm) => {
 const setupRoutes = (app) => {
   // Serve views
   app.get('/', (req, res) => {
-    res.render('first_page', { title: '1WEB3', isHome: true });
+    res.render('first_page', { title: 'Faster', isHome: true });
   });
 
   app.get('/user_page', (req, res) => {

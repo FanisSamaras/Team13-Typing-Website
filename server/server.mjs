@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import session from 'express-session';
 import setupRoutes from './routes/Routes.mjs';
+import { error } from 'console';
 
 // Configuration
 const __filename = fileURLToPath(import.meta.url);
@@ -44,5 +45,18 @@ app.use(express.static(PUBLIC_DIR));
 
 // API routes
 setupRoutes(app);
+
+app.use((err,req,res,next) => {
+  const status = err.status || err.statusCode || 500;
+  const message = err.message || "Internal Server Error" ;
+
+  console.error(`[${status}] ${message}`, err);
+
+  if(req.accepts("json")){
+    return res.status(status).json({error:message, status});
+  }
+
+  res.status(status).render("error",{title:"Error",status,message})
+})
 
 export default app;
