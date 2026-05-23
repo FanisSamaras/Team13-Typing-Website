@@ -117,7 +117,8 @@ Team13-Typing-Website/
 |/api/signup|POST|Register new user|
 |/api/login|POST|Log in user|
 
-### 
+### Loading Routes ###
+ 
 |Endpoint|Method|Parameters|Description|
 |--|--|--|--|
 |/api/quotes/?lang={param}|GET|:lang|Returns quotes for the language|
