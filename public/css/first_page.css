@@ -4,10 +4,17 @@
 
 body{
     min-height: 700px;
-    min-width: 600px;
     background-color: rgb(48,50,52);
     background-attachment: fixed;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 *{
@@ -234,4 +241,70 @@ button{
 
 .fa-github {
   color: black;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  body {
+    min-height: auto;
+  }
+
+  header a h1 {
+    font-size: 50px;
+  }
+
+  header a h2 {
+    font-size: 20px;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    padding: 0.5rem 0.25rem;
+  }
+
+  nav ul li {
+    flex-grow: 1;
+  }
+
+  .restart-wrapper {
+    max-width: 100%;
+  }
+
+  .offcanvas {
+    width: 100%;
+  }
+
+  table thead th:nth-child(3),
+  table thead th:nth-child(4),
+  table thead th:nth-child(6),
+  table tbody td:nth-child(3),
+  table tbody td:nth-child(4),
+  table tbody td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  header a h1 {
+    font-size: 35px;
+  }
+
+  header a h2 {
+    font-size: 16px;
+  }
+
+  header a {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  .type_this {
+    font-size: 1rem;
+  }
 }

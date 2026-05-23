@@ -1,32 +1,76 @@
-let items = [];
-let wordArray = [];
-let currentWordIndex = 0;
-let currentQuoteSource = '';
-let currentMode = 'quotes';
-let currentLanguage = 'english';
-let currentDifficulty = 'easy';
-let startTime = null;
-let isTyping = false;
-let totalChars = 0;
-let totalCorrectChars = 0;
-let previousInputValue = '';
+// Configuration Constants
+const DIFFICULTY_CONFIG = {
+  easy: { quoteLength: 55, wordCount: 10 },
+  medium: { quoteLength: 100, wordCount: 25 },
+  hard: { quoteLength: Infinity, wordCount: 50 },
+};
 
-function resetAccuracyTracking() {
-  totalChars = 0;
-  totalCorrectChars = 0;
-  previousInputValue = '';
-  currentWordIndex = 0;
-  startTime = null;
-  isTyping = false;
+const COLOR_SCHEME = {
+  correct: '#00ff00',
+  incorrect: '#ff0000',
+  upcoming: '#cccccc',
+  pending: 'white',
+  completed: '#99ff99',
+  empty: 'gray',
+};
+
+const SELECTORS = {
+  input: 'input',
+  textDisplay: '#text',
+  feedbackDisplay: '#character-feedback',
+  form: 'form',
+  modeSelect: '#modeSelect',
+  languageSelect: '#languageSelect',
+  difficultySelect: '#difficultySelect',
+  restartButton: '#restartButton',
+};
+
+// Game State
+const gameState = {
+  items: [],
+  wordArray: [],
+  currentWordIndex: 0,
+  currentQuoteSource: '',
+  currentMode: 'quotes',
+  currentLanguage: 'english',
+  currentDifficulty: 'easy',
+  startTime: null,
+  isTyping: false,
+  totalChars: 0,
+  totalCorrectChars: 0,
+  previousInputValue: '',
+};
+
+// Utility Functions
+function getInputField() {
+  return document.querySelector(SELECTORS.input);
 }
 
+function getTextDisplay() {
+  return document.getElementById('text');
+}
+
+function getFeedbackDisplay() {
+  return document.getElementById('character-feedback');
+}
+
+function resetAccuracyTracking() {
+  gameState.totalChars = 0;
+  gameState.totalCorrectChars = 0;
+  gameState.previousInputValue = '';
+  gameState.currentWordIndex = 0;
+  gameState.startTime = null;
+  gameState.isTyping = false;
+}
+
+// API Functions
 async function loadContent(language, mode, difficulty) {
-  currentLanguage = language;
-  currentMode = mode;
-  currentDifficulty = difficulty;
-  document.querySelector('input').value = '';
-  startTime = null;
-  isTyping = false;
+  gameState.currentLanguage = language;
+  gameState.currentMode = mode;
+  gameState.currentDifficulty = difficulty;
+  getInputField().value = '';
+  gameState.startTime = null;
+  gameState.isTyping = false;
   resetAccuracyTracking();
 
   if (mode === 'words') {
@@ -40,7 +84,7 @@ async function loadQuotes() {
   try {
     const response = await fetch('/api/quotes');
     const data = await response.json();
-    items = data.quotes || [];
+    gameState.items = data.quotes || [];
     displayRandomQuote();
   } catch (error) {
     console.error('Error loading quotes:', error);
@@ -51,28 +95,25 @@ async function loadWords(language) {
   try {
     const response = await fetch(`/api/words/${language}`);
     const data = await response.json();
-    items = data.words || [];
+    gameState.items = data.words || [];
     displayRandomWord();
   } catch (error) {
     console.error('Error loading words:', error);
   }
 }
 
+// Content Processing Functions
 function filterQuotesByDifficulty(quotes, difficulty) {
   if (!quotes.length) return [];
-
+  const maxLength = DIFFICULTY_CONFIG[difficulty]?.quoteLength || Infinity;
   return quotes.filter((quote) => {
     const length = quote.length || quote.text.length || 0;
-    if (difficulty === 'easy') return length <= 55;
-    if (difficulty === 'medium') return length <= 100;
-    return true; // hard
+    return length <= maxLength;
   });
 }
 
 function getWordCountForDifficulty(difficulty) {
-  if (difficulty === 'easy') return 10;
-  if (difficulty === 'medium') return 25;
-  return 50;
+  return DIFFICULTY_CONFIG[difficulty]?.wordCount || 50;
 }
 
 function normalizeText(text) {
@@ -84,208 +125,212 @@ function getTextForWord(entry) {
   return normalizeText(rawWord);
 }
 
+// Display Functions
 function displayRandomQuote() {
-  if (!items.length) {
-    wordArray = ['No quotes available.'];
-    currentQuoteSource = '';
+  if (!gameState.items.length) {
+    gameState.wordArray = ['No quotes available.'];
+    gameState.currentQuoteSource = '';
   } else {
-    const filtered = filterQuotesByDifficulty(items, currentDifficulty);
-    const activeQuotes = filtered.length ? filtered : items;
+    const filtered = filterQuotesByDifficulty(gameState.items, gameState.currentDifficulty);
+    const activeQuotes = filtered.length ? filtered : gameState.items;
     const randomIndex = Math.floor(Math.random() * activeQuotes.length);
     const quoteText = normalizeText(activeQuotes[randomIndex].text);
-    wordArray = quoteText.split(' ').filter((w) => w.length > 0);
-    currentQuoteSource = activeQuotes[randomIndex].source || '';
+    gameState.wordArray = quoteText.split(' ').filter((w) => w.length > 0);
+    gameState.currentQuoteSource = activeQuotes[randomIndex].source || '';
   }
   resetAccuracyTracking();
   displayCurrentWord();
 }
 
 function displayRandomWord() {
-  const wordCount = getWordCountForDifficulty(currentDifficulty);
-  if (!items.length) {
-    wordArray = ['No words available.'];
+  const wordCount = getWordCountForDifficulty(gameState.currentDifficulty);
+  if (!gameState.items.length) {
+    gameState.wordArray = ['No words available.'];
   } else {
     const selectedWords = [];
     for (let i = 0; i < wordCount; i++) {
-      const randomIndex = Math.floor(Math.random() * items.length);
-      selectedWords.push(getTextForWord(items[randomIndex]));
+      const randomIndex = Math.floor(Math.random() * gameState.items.length);
+      selectedWords.push(getTextForWord(gameState.items[randomIndex]));
     }
-    wordArray = selectedWords;
+    gameState.wordArray = selectedWords;
   }
-  currentQuoteSource = '';
+  gameState.currentQuoteSource = '';
   resetAccuracyTracking();
   displayCurrentWord();
 }
 
 function renderTextWithInput(inputValue = '') {
-  const textDiv = document.getElementById('text');
+  const textDiv = getTextDisplay();
   let html = '';
   const normalizedInput = normalizeText(inputValue);
-  const currentWord = normalizeText(wordArray[currentWordIndex] || '');
+  const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex] || '');
 
-  for (let i = 0; i < wordArray.length; i++) {
-    if (i < currentWordIndex) {
-      html += `<span style="color: #99ff99; opacity: 0.85;">${wordArray[i]}</span> `;
-    } else if (i === currentWordIndex) {
+  for (let i = 0; i < gameState.wordArray.length; i++) {
+    if (i < gameState.currentWordIndex) {
+      html += `<span style="color: ${COLOR_SCHEME.completed}; opacity: 0.85;">${gameState.wordArray[i]}</span> `;
+    } else if (i === gameState.currentWordIndex) {
       if (!normalizedInput) {
-        html += `<span style="color: white;  ">${wordArray[i]}</span> `;
+        html += `<span style="color: ${COLOR_SCHEME.pending};">${gameState.wordArray[i]}</span> `;
       } else {
-        let wordHtml = '';
-        const wordLength = currentWord.length;
-        const inputLength = normalizedInput.length;
-        const minLength = Math.min(inputLength, wordLength);
-
-        for (let j = 0; j < minLength; j++) {
-          if (normalizedInput[j] === currentWord[j]) {
-            wordHtml += `<span style="color: #00ff00;  ">${normalizedInput[j]}</span>`;
-          } else {
-            wordHtml += `<span style="color: #ff0000;  ">${normalizedInput[j]}</span>`;
-          }
-        }
-
-        if (inputLength < wordLength) {
-          for (let j = inputLength; j < wordLength; j++) {
-            wordHtml += `<span style="color: gray; opacity: 0.5;">${currentWord[j]}</span>`;
-          }
-        } else if (inputLength > wordLength) {
-          for (let j = wordLength; j < inputLength; j++) {
-            wordHtml += `<span style="color: #ff0000;  ">${normalizedInput[j]}</span>`;
-          }
-        }
-
-        html += `<span>${wordHtml}</span> `;
+        html += renderCharacterComparison(normalizedInput, currentWord);
       }
     } else {
-      html += `<span style="color: #cccccc; opacity: 0.9;">${wordArray[i]}</span> `;
+      html += `<span style="color: ${COLOR_SCHEME.upcoming}; opacity: 0.9;">${gameState.wordArray[i]}</span> `;
     }
   }
 
   textDiv.innerHTML = html;
 }
 
+function renderCharacterComparison(input, word) {
+  let wordHtml = '';
+  const wordLength = word.length;
+  const inputLength = input.length;
+  const minLength = Math.min(inputLength, wordLength);
+
+  for (let j = 0; j < minLength; j++) {
+    const color = input[j] === word[j] ? COLOR_SCHEME.correct : COLOR_SCHEME.incorrect;
+    wordHtml += `<span style="color: ${color};">${input[j]}</span>`;
+  }
+
+  if (inputLength < wordLength) {
+    for (let j = inputLength; j < wordLength; j++) {
+      wordHtml += `<span style="color: ${COLOR_SCHEME.empty}; opacity: 0.5;">${word[j]}</span>`;
+    }
+  } else if (inputLength > wordLength) {
+    for (let j = wordLength; j < inputLength; j++) {
+      wordHtml += `<span style="color: ${COLOR_SCHEME.incorrect};">${input[j]}</span>`;
+    }
+  }
+
+  return `<span>${wordHtml}</span> `;
+}
+
 function displayCurrentWord() {
-  if (currentWordIndex >= wordArray.length) {
+  if (gameState.currentWordIndex >= gameState.wordArray.length) {
     finishGame();
     return;
   }
 
   renderTextWithInput('');
-  const inputField = document.querySelector('input');
+  const inputField = getInputField();
   inputField.value = '';
   inputField.style.borderColor = '';
-  previousInputValue = '';
+  gameState.previousInputValue = '';
 
-  const feedbackDiv = document.getElementById('character-feedback');
+  const feedbackDiv = getFeedbackDisplay();
   if (feedbackDiv) {
     feedbackDiv.remove();
   }
 
-  document.querySelector('input').focus();
+  inputField.focus();
 }
 
+// Accuracy Tracking Functions
 function updateTypingAccuracy(currentValue) {
   const currentRaw = currentValue;
-  const previousRaw = previousInputValue;
-  const currentWord = normalizeText(wordArray[currentWordIndex] || '');
+  const previousRaw = gameState.previousInputValue;
+  const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex] || '');
 
   if (currentRaw.length > previousRaw.length) {
     for (let i = previousRaw.length; i < currentRaw.length; i++) {
-      totalChars += 1;
+      gameState.totalChars += 1;
       if (currentRaw[i] === currentWord[i]) {
-        totalCorrectChars += 1;
+        gameState.totalCorrectChars += 1;
       }
     }
   }
 
-  previousInputValue = currentRaw;
+  gameState.previousInputValue = currentRaw;
 }
 
 function advanceWord(inputValue = '') {
-  const currentWord = normalizeText(wordArray[currentWordIndex]);
-  if (!startTime) {
-    startTime = new Date();
-    isTyping = true;
+  const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex]);
+  if (!gameState.startTime) {
+    gameState.startTime = new Date();
+    gameState.isTyping = true;
   }
 
   const normalizedInput = normalizeText(inputValue);
-  if (normalizedInput.length > previousInputValue.length) {
+  if (normalizedInput.length > gameState.previousInputValue.length) {
     updateTypingAccuracy(inputValue);
   }
 
-  currentWordIndex += 1;
+  gameState.currentWordIndex += 1;
   displayCurrentWord();
 }
 
+// Game Completion Functions
 function finishGame() {
   const endTime = new Date();
-  const timeTaken = (endTime - startTime) / 1000 / 60;
-  const totalQuoteChars = wordArray.join(' ').length;
+  const timeTaken = (endTime - gameState.startTime) / 1000 / 60;
+  const totalQuoteChars = gameState.wordArray.join(' ').length;
   const wpm = timeTaken > 0 ? Math.round(totalQuoteChars / 5 / timeTaken) : 0;
-  const accuracy = totalChars
-    ? Math.max(0, Math.round((totalCorrectChars / totalChars) * 100))
+  const accuracy = gameState.totalChars
+    ? Math.max(0, Math.round((gameState.totalCorrectChars / gameState.totalChars) * 100))
     : 100;
 
-  const sourceParam = currentMode === 'quotes' ? `&source=${encodeURIComponent(currentQuoteSource || '')}` : '';
-  const difficultyParam = `&difficulty=${encodeURIComponent(currentDifficulty)}`;
-  const resultUrl = `/result?mode=${encodeURIComponent(currentMode)}&language=${encodeURIComponent(currentLanguage)}&wpm=${wpm}&accuracy=${accuracy}${difficultyParam}${sourceParam}`;
+  saveScore({ wpm, accuracy });
+  redirectToResults({ wpm, accuracy });
+}
 
+function saveScore(scoreData) {
   fetch('/api/score', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      wpm,
-      accuracy,
-      mode: currentMode,
-      difficulty: currentDifficulty,
-      language: currentLanguage,
+      wpm: scoreData.wpm,
+      accuracy: scoreData.accuracy,
+      mode: gameState.currentMode,
+      difficulty: gameState.currentDifficulty,
+      language: gameState.currentLanguage,
     }),
   })
     .then(async (response) => {
       if (!response.ok) {
         const error = await response.json().catch(() => ({}));
         console.warn('Score not saved:', error.error || response.statusText);
-        return;
       }
       return response.json();
     })
     .then((data) => {
-      if (data && data.success) {
+      if (data?.success) {
         console.log('Score saved successfully');
       }
     })
     .catch((error) => {
       console.error('Unable to save score:', error);
-    })
-    .finally(() => {
-      window.location.href = resultUrl;
     });
 }
 
+function redirectToResults(scoreData) {
+  const sourceParam = gameState.currentMode === 'quotes' ? `&source=${encodeURIComponent(gameState.currentQuoteSource || '')}` : '';
+  const params = new URLSearchParams({
+    mode: gameState.currentMode,
+    language: gameState.currentLanguage,
+    wpm: scoreData.wpm,
+    accuracy: scoreData.accuracy,
+    difficulty: gameState.currentDifficulty,
+  });
+
+  if (gameState.currentMode === 'quotes' && gameState.currentQuoteSource) {
+    params.append('source', gameState.currentQuoteSource);
+  }
+
+  window.location.href = `/result?${params.toString()}`;
+}
+
+// Character Feedback Display
 function displayCharacterFeedback() {
-  const inputField = document.querySelector('input');
+  const inputField = getInputField();
   const normalizedInput = normalizeText(inputField.value);
-  const currentWord = normalizeText(wordArray[currentWordIndex]);
+  const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex]);
 
-  let feedbackHTML = '';
+  const feedbackHTML = renderCharacterComparison(normalizedInput, currentWord);
 
-  // Add colored characters for typed input
-  for (let i = 0; i < normalizedInput.length; i++) {
-    if (normalizedInput[i] === currentWord[i]) {
-      feedbackHTML += `<span style="color: #00ff00;  ">${normalizedInput[i]}</span>`;
-    } else {
-      feedbackHTML += `<span style="color: #ff0000;  ">${normalizedInput[i]}</span>`;
-    }
-  }
-
-  // Add gray remaining letters
-  for (let i = normalizedInput.length; i < currentWord.length; i++) {
-    feedbackHTML += `<span style="color: gray; opacity: 0.5;">${currentWord[i]}</span>`;
-  }
-
-  // Update or create feedback display element
-  let feedbackDiv = document.getElementById('character-feedback');
+  let feedbackDiv = getFeedbackDisplay();
   if (!feedbackDiv) {
     feedbackDiv = document.createElement('div');
     feedbackDiv.id = 'character-feedback';
@@ -301,105 +346,106 @@ function displayCharacterFeedback() {
   feedbackDiv.innerHTML = feedbackHTML;
 }
 
+// Validation Functions
 function validateRealtime() {
-  const inputField = document.querySelector('input');
+  const inputField = getInputField();
   const normalizedInput = normalizeText(inputField.value);
-  const currentWord = normalizeText(wordArray[currentWordIndex]);
+  const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex]);
 
-  // Check if all typed characters match so far
-  let isCorrect = true;
-  if (normalizedInput.length > 0) {
-    if (normalizedInput.length > currentWord.length) {
-      isCorrect = false;
-    } else {
-      for (let i = 0; i < normalizedInput.length; i++) {
-        if (normalizedInput[i] !== currentWord[i]) {
-          isCorrect = false;
-          break;
-        }
-      }
-    }
-  }
+  const isCorrect = checkInputCorrectness(normalizedInput, currentWord);
 
-  if (!startTime && normalizedInput.length > 0) {
-    startTime = new Date();
-    isTyping = true;
+  if (!gameState.startTime && normalizedInput.length > 0) {
+    gameState.startTime = new Date();
+    gameState.isTyping = true;
   }
 
   updateTypingAccuracy(inputField.value);
 
-  // If the final word has been typed correctly, complete the game immediately without requiring a trailing space.
-  if (currentWordIndex === wordArray.length - 1 && normalizedInput === currentWord) {
+  if (gameState.currentWordIndex === gameState.wordArray.length - 1 && normalizedInput === currentWord) {
     advanceWord(inputField.value);
     return;
   }
 
-  // Visual feedback: green for correct, red for incorrect border
-  if (normalizedInput.length === 0) {
-    inputField.style.borderColor = '';
-  } else if (isCorrect) {
-    inputField.style.borderColor = 'green';
-  } else {
-    inputField.style.borderColor = 'red';
-  }
-
+  inputField.style.borderColor = normalizedInput.length === 0 ? '' : (isCorrect ? 'green' : 'red');
   renderTextWithInput(inputField.value);
 }
 
+function checkInputCorrectness(input, word) {
+  if (input.length === 0) return true;
+  if (input.length > word.length) return false;
+
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] !== word[i]) return false;
+  }
+  return true;
+}
+
+// Input Handling Functions
 function checkTypingSpace(e) {
   if (e.key !== ' ') {
     return;
   }
 
-  const input = normalizeText(document.querySelector('input').value);
-  const currentWord = normalizeText(wordArray[currentWordIndex]);
+  const input = normalizeText(getInputField().value);
+  const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex]);
 
-  // Only allow advancing if word is typed correctly
   if (input !== currentWord) {
     e.preventDefault();
-    // Visual feedback - shake effect for incorrect word
-    const inputField = document.querySelector('input');
-    inputField.classList.add('shake-error');
-    setTimeout(() => inputField.classList.remove('shake-error'), 300);
-    return; // Don't advance
+    triggerShakeEffect();
+    return;
   }
 
-  // Word is correct - allow advancing
   e.preventDefault();
-  advanceWord(document.querySelector('input').value);
+  advanceWord(getInputField().value);
+}
+
+function triggerShakeEffect() {
+  const inputField = getInputField();
+  inputField.classList.add('shake-error');
+  setTimeout(() => inputField.classList.remove('shake-error'), 300);
 }
 
 function restartGame() {
-  document.querySelector('input').value = '';
-  document.querySelector('input').style.borderColor = '';
-  
-  // Clear character feedback display
-  const feedbackDiv = document.getElementById('character-feedback');
+  const inputField = getInputField();
+  inputField.value = '';
+  inputField.style.borderColor = '';
+
+  const feedbackDiv = getFeedbackDisplay();
   if (feedbackDiv) {
     feedbackDiv.innerHTML = '';
   }
-  
+
   resetAccuracyTracking();
-  if (currentMode === 'words') {
+  if (gameState.currentMode === 'words') {
     displayRandomWord();
   } else {
     displayRandomQuote();
   }
-  document.querySelector('input').focus();
+  inputField.focus();
 }
 
+// Event Initialization
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
+  initializeFormListener();
+  initializeInputListeners();
+  initializeRestartButton();
+  loadContent('english', 'words', 'easy');
+});
+
+function initializeFormListener() {
+  const form = document.querySelector(SELECTORS.form);
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const language = document.getElementById('languageSelect').value || 'english';
     const mode = document.getElementById('modeSelect').value || 'quotes';
     const difficulty = document.getElementById('difficultySelect').value || 'easy';
     await loadContent(language, mode, difficulty);
-    document.querySelector('input').focus();
+    getInputField().focus();
   });
+}
 
-  const inputField = document.querySelector('input');
+function initializeInputListeners() {
+  const inputField = getInputField();
   inputField.addEventListener('keydown', checkTypingSpace);
   inputField.addEventListener('input', validateRealtime);
   inputField.addEventListener('keydown', (e) => {
@@ -408,7 +454,8 @@ document.addEventListener('DOMContentLoaded', () => {
       restartGame();
     }
   });
+}
 
+function initializeRestartButton() {
   document.getElementById('restartButton').addEventListener('click', restartGame);
-  loadContent('english', 'words', 'easy');
-});
+}
