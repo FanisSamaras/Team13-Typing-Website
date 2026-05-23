@@ -46,17 +46,24 @@ app.use(express.static(PUBLIC_DIR));
 // API routes
 setupRoutes(app);
 
+app.use((req,res,next) => {
+  const err = new Error(`Not found - ${req.originalUrl}`);
+  err.status = 404;
+  next(err);
+})
+
 app.use((err,req,res,next) => {
   const status = err.status || err.statusCode || 500;
   const message = err.message || "Internal Server Error" ;
 
   console.error(`[${status}] ${message}`, err);
-
-  if(req.accepts("json")){
-    return res.status(status).json({error:message, status});
+  if (req.accepts('html')) {
+    return res.status(status).render('error', { title: 'Error', status, message });
   }
-
-  res.status(status).render("error",{title:"Error",status,message})
+  if (req.accepts('json')) {
+    return res.status(status).json({ error: message, status });
+  }
+  res.type('txt').status(status).send(message);
 })
 
 export default app;
