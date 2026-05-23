@@ -219,8 +219,13 @@ const setupRoutes = (app) => {
   });
 
   // API to get quotes
-  app.get('/api/quotes', (req, res) => {
-    const filePath = fileURLToPath(new URL('../data/quotes.json', import.meta.url));
+  app.get('/api/quotes/:lang?', (req, res) => {
+    const requested = (req.params.lang || req.query.lang || req.query.language || 'en').toLowerCase();
+    let fileName = 'quotes_en.json';
+    if (requested === 'el' || requested === 'greek') {
+      fileName = 'quotes_el.json';
+    }
+    const filePath = fileURLToPath(new URL(`../data/${fileName}`, import.meta.url));
     res.sendFile(filePath);
   });
 

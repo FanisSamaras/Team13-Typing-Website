@@ -110,7 +110,58 @@ Team13-Typing-Website/
 
 ## Example API Endpoints ##
 
+### Auth Routes ###
 
+|Endpoint|Method|Description|
+|--|--|--|
+|/api/signup|POST|Register new user|
+|/api/login|POST|Log in user|
+
+### 
+|Endpoint|Method|Parameters|Description|
+|--|--|--|--|
+|/api/quotes/?lang={param}|GET|:lang|Returns quotes for the language|
+|/api/words?lang={param}|GET|:lang|Returns words for the language|
+
+
+### Example Request ###
+
+``` bash 
+POST /api/quotes/?lang=el
+
+```
+
+### Example Response ###
+
+``` bash
+{
+  "language": "greek",
+  "quotes": [
+    {
+      "text": "Να αγαπάς την ευθύνη. Να λες: εγώ, εγώ μονάχος μου έχω χρέος να σώσω τη γη.",
+      "source": "Ασκητική",
+      "author": "Νίκος Καζαντζάκης",
+      "id": 1,
+      "length": 83
+    },
+    {
+      "text": "Όπου και να ταξιδέψω η Ελλάδα με πληγώνει.",
+      "source": "Μυθιστόρημα",
+      "author": "Γιώργος Σεφέρης",
+      "id": 2,
+      "length": 45
+    },
+    {
+      "text": "Τη γλώσσα μου έδωσαν ελληνική.",
+      "source": "Άξιον Εστί",
+      "author": "Οδυσσέας Ελύτης",
+      "id": 3,
+      "length": 33
+    },
+    ...
+  ]
+}
+```
 
 ## Environment Variables ##
 

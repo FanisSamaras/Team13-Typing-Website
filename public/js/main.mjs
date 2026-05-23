@@ -82,7 +82,8 @@ async function loadContent(language, mode, difficulty) {
 
 async function loadQuotes() {
   try {
-    const response = await fetch('/api/quotes');
+    const langCode = (gameState.currentLanguage === 'greek' || gameState.currentLanguage === 'el') ? 'el' : 'en';
+    const response = await fetch(`/api/quotes?lang=${langCode}`);
     const data = await response.json();
     gameState.items = data.quotes || [];
     displayRandomQuote();
