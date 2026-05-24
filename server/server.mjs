@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import { engine } from 'express-handlebars';
 import session from 'express-session';
 import setupRoutes from './routes/Routes.mjs';
-import { error } from 'console';
+import { loadApiData } from './config/apiCache.mjs';
 
 // Configuration
 const __filename = fileURLToPath(import.meta.url);
@@ -42,6 +42,9 @@ app.use((req, res, next) => {
 
 // Static files
 app.use(express.static(PUBLIC_DIR));
+
+// Load API data cache
+loadApiData();
 
 // API routes
 setupRoutes(app);

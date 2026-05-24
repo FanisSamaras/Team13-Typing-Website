@@ -134,7 +134,7 @@ Team13-Typing-Website/
 ### Example Request ###
 
 ``` bash 
-POST /api/quotes/?lang=el
+GET /api/quotes/?lang=el
 
 ```
 
