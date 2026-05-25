@@ -61,38 +61,46 @@ Now the website should be available at [localhost:3000](https://localhost:3000)
 ## Repository Structure ##
 ```bash
 Team13-Typing-Website/
-    ├── public/ 
-    │   ├── css/ #Main CSS file
-    │   │   ├── first_page.css
-    │   ├── js/
-    │   │   ├── main.mjs #JS Frontend file
-    ├── server/
-    │   ├── config/
-    │   │   ├── db.mjs #Database initialization
-    │   ├── data/ # Greek/English words and quotes
-    │   │   ├── el.json
-    │   │   ├── en.json
-    │   │   ├── quotes.json
-    │   ├── database/
-    │   │   ├── database.sqlite #Database
-    │   │   ├── schema.sql #Database Schema
-    │   ├── routes/
-    │   │   ├── Routes.mjs #Backend routing
-    │   ├── program.mjs #Backend imports 
-    │   ├── server.mjs #Backend Main
-    ├── views/ #Pages with handlebars
-    │   ├── layouts/
-    │   │   └── main.hbs #Header/Footer and inclusions 
-    │   ├── first_page.hbs 
-    │   ├── leaderboards_page.hbs
-    │   ├── login_page.hbs
-    │   ├── result_page.hbs
-    │   ├── sign_up_page.hbs
-    │   └── user_page.hbs
-    ├── .env.example #.env example for easy installation
-    ├── .gitignore
-    ├── package.json #List dependencies / scripts / metadata
-    └── README.md 
+├── .env.example #.env example for easy installation
+├── .gitignore
+├── README.md
+├── package-lock.json
+├── package.json #List dependencies / scripts / metadata
+├── public/
+│   ├── css/ #Main CSS file
+│   │   └── first_page.css
+│   └── js/ #JS Frontend file
+│       └── main.mjs
+├── server/
+│   ├── config/ 
+│   │   ├── apiCache.mjs #Preloading data
+│   │   ├── constants.mjs #General constants
+│   │   └── db.mjs #Database initialization
+│   ├── data/ # Greek/English words and quotes
+│   │   ├── el.json
+│   │   ├── en.json
+│   │   ├── quotes_el.json
+│   │   └── quotes_en.json
+│   ├── database/
+│   │   ├── database.sqlite #Database
+│   │   └── schema.sql #Database schema
+│   ├── routes/ #Backend routing
+│   │   ├── Routes.mjs
+│   │   ├── authRoutes.mjs
+│   │   ├── gameRoutes.mjs
+│   │   └── leaderboardRoutes.mjs
+│   ├── program.mjs #Backend imports 
+│   └── server.mjs #Backend Main
+└── views/
+    ├── error.hbs
+    ├── first_page.hbs
+    ├── layouts/ #Pages with handlebars
+    │   └── main.hbs #Header/Footer and inclusions 
+    ├── leaderboards_page.hbs
+    ├── login_page.hbs
+    ├── result_page.hbs
+    ├── sign_up_page.hbs
+    └── user_page.hbs
 ```
 
 ## Architecture overview ##
