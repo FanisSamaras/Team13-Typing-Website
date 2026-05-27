@@ -69,8 +69,16 @@ Team13-Typing-Website/
 ├── public/
 │   ├── css/ #Main CSS file
 │   │   └── first_page.css
-│   └── js/ #JS Frontend file
-│       └── main.mjs
+│   └── js/ #JS Frontend 
+│       ├── accuracy.mjs #Accuracy calculator
+│       ├── api.mjs #API requests/responses
+│       ├── config.mjs #Global variables for the website
+│       ├── display.mjs #Dynamic changes in display
+│       ├── game.mjs #Game Logic
+│       ├── input.mjs #Input handling
+│       ├── main.mjs #Main file that get's imported
+│       ├── state.mjs #Changes in the game state
+│       └── utils.mjs #Function wraps for cleaner code 
 ├── server/
 │   ├── config/ 
 │   │   ├── apiCache.mjs #Preloading data
