@@ -1,214 +1,1507 @@
 {
-  "name": "greek",
+  "languageCode": "el",
+  "languageName": "Greek",
+  "languageNativeName": "Ελληνικά",
   "words": [
-    "άρθρο",
-    "στέψη",
-    "βασικό",
-    "εγώ",
-    "εβδομάδα",
-    "αστείο",
-    "διάφορα",
-    "πηγαίνω",
-    "άσχημος",
-    "εταιρεία",
-    "νύχτα",
-    "λουλούδι",
-    "εφεύρεση",
-    "κρεβάτι",
-    "γελάω",
-    "ζωή",
-    "νόστιμο",
-    "μπορώ",
-    "έχει",
-    "βουνό",
-    "διαγωνισμός",
-    "ειδικό",
-    "μηχανικός",
-    "τηλεόραση",
-    "κάθε",
-    "πλύση",
-    "μαύρο",
-    "όχι",
-    "υπάρχω",
-    "γιορτή",
-    "άγριο",
-    "εικόνα",
-    "μητέρα",
-    "πρόβατο",
-    "κόκκινο",
-    "στέγη",
-    "μυστήριο",
-    "ψάρι",
-    "μπορεί",
-    "ποδήλατο",
-    "έργο",
-    "ελπίδα",
-    "πρέπει",
-    "αδερφός",
-    "κακός",
-    "όμορφος",
-    "πατέρας",
-    "αρχαίο",
-    "τρία",
-    "λάμπα",
-    "ιστορία",
-    "χθες",
-    "θα",
-    "πτήση",
-    "ώρα",
-    "βλέπω",
-    "τον",
-    "ψηφιακός",
-    "φως",
-    "πρώτο",
-    "χειμώνας",
-    "πρωί",
-    "αυτή",
-    "κεφάλι",
-    "άρωμα",
-    "πιάτο",
-    "τραγούδι",
-    "κάνω",
-    "αστυνόμος",
-    "πριν",
-    "γρήγορα",
-    "κλήση",
-    "ύπαρξη",
-    "πράξη",
-    "άνοιξη",
-    "κόρη",
-    "ομιλία",
-    "ομάδα",
-    "ένα",
-    "δευτερόλεπτο",
-    "φθινόπωρο",
-    "εκείνη",
-    "υπάρχεις",
-    "την",
-    "χτίσιμο",
-    "η",
-    "λαιμός",
-    "καληνύχτα",
-    "καλός",
-    "ζυμαρικά",
-    "οργανισμός",
-    "φώκια",
-    "κύριο",
-    "στήθος",
-    "νερό",
-    "βαρετό",
-    "χοιρινό",
-    "χώρα",
-    "ταξίδι",
-    "έχω",
-    "πολυθρόνα",
-    "θάλασσα",
-    "φτιάχνω",
-    "σήμερα",
-    "κοτόπουλο",
-    "δίσκος",
-    "μακριά",
-    "εμπειρία",
-    "σώμα",
-    "επιτυχία",
-    "γεύση",
-    "σπουδές",
-    "θέλεις",
-    "υγεία",
-    "γιος",
-    "ήταν",
-    "στομάχι",
-    "όταν",
-    "καλημέρα",
-    "επιστήμη",
-    "δύο",
-    "τελευταίο",
-    "κοινότητα",
-    "χέρι",
-    "καπέλο",
-    "εκείνο",
-    "φρούτο",
-    "αγρότης",
-    "ναι",
-    "τυρί",
-    "εκείνος",
-    "βέλος",
-    "μήνας",
-    "πάγος",
-    "θέλω",
-    "δάκτυλο",
-    "κλειστό",
-    "αργά",
-    "αυτός",
-    "ορειβασία",
-    "γεια",
-    "αέρας",
-    "είσαι",
-    "φορητό",
-    "διεθνής",
-    "μάγειρας",
-    "φτάνω",
-    "αύριο",
-    "κάνει",
-    "καταγραφικό",
-    "όξινο",
-    "ψυχή",
-    "φιλικό",
-    "μονοπάτι",
-    "μαχαίρι",
-    "σκοτώνω",
-    "βράδυ",
-    "χρήσιμο",
-    "καρέκλα",
-    "άστρο",
-    "έτος",
-    "εποχή",
-    "έπιπλο",
-    "μεσημέρι",
-    "κινητό",
-    "διδάσκω",
-    "χημικό",
-    "πόλη",
-    "πέψη",
-    "του",
-    "αγάπη",
-    "ευχαριστώ",
-    "καλησπέρα",
-    "πωλητής",
-    "οδηγός",
-    "αρνί",
-    "πλοίο",
-    "ευτυχία",
-    "εγγραφή",
-    "ξενώνας",
-    "νησί",
-    "κωμωδία",
-    "βρίσκομαι",
-    "πλάτη",
-    "υπάλληλος",
-    "θάνατος",
-    "τραγωδία",
-    "αιώνια",
-    "αυτό",
-    "πρωταθλητής",
-    "χρησιμοποιώ",
-    "λίγο",
-    "διάστημα",
-    "κάνουμε",
-    "φόρεμα",
-    "ζωγραφιά",
-    "πίνω",
-    "ξεκούραση",
-    "ανακάλυψη",
-    "πόδι",
-    "παιδί",
-    "λεπτό",
-    "είμαι",
-    "ποιότητα",
-    "επιπλέον",
-    "καλοκαίρι",
-    "ποδόσφαιρο",
-    "φριχτό",
-    "ήλιος"
+    {
+      "rank": 1,
+      "targetWord": "ως",
+      "englishWord": "as"
+    },
+    {
+      "rank": 2,
+      "targetWord": "εδώ",
+      "englishWord": "I"
+    },
+    {
+      "rank": 3,
+      "targetWord": "του",
+      "englishWord": "his"
+    },
+    {
+      "rank": 4,
+      "targetWord": "ότι",
+      "englishWord": "that"
+    },
+    {
+      "rank": 5,
+      "targetWord": "αυτός",
+      "englishWord": "he"
+    },
+    {
+      "rank": 6,
+      "targetWord": "ήταν",
+      "englishWord": "was"
+    },
+    {
+      "rank": 7,
+      "targetWord": "για",
+      "englishWord": "for"
+    },
+    {
+      "rank": 8,
+      "targetWord": "επί",
+      "englishWord": "on"
+    },
+    {
+      "rank": 9,
+      "targetWord": "είναι",
+      "englishWord": "are"
+    },
+    {
+      "rank": 10,
+      "targetWord": "με",
+      "englishWord": "with"
+    },
+    {
+      "rank": 11,
+      "targetWord": "αυτοί",
+      "englishWord": "they"
+    },
+    {
+      "rank": 12,
+      "targetWord": "να",
+      "englishWord": "be"
+    },
+    {
+      "rank": 13,
+      "targetWord": "σε",
+      "englishWord": "at"
+    },
+    {
+      "rank": 14,
+      "targetWord": "ένας",
+      "englishWord": "one"
+    },
+    {
+      "rank": 15,
+      "targetWord": "έχω",
+      "englishWord": "have"
+    },
+    {
+      "rank": 16,
+      "targetWord": "αυτό",
+      "englishWord": "this"
+    },
+    {
+      "rank": 17,
+      "targetWord": "από",
+      "englishWord": "from"
+    },
+    {
+      "rank": 18,
+      "targetWord": "από",
+      "englishWord": "by"
+    },
+    {
+      "rank": 19,
+      "targetWord": "ζεστός",
+      "englishWord": "hot"
+    },
+    {
+      "rank": 20,
+      "targetWord": "λέξη",
+      "englishWord": "word"
+    },
+    {
+      "rank": 21,
+      "targetWord": "αλλά",
+      "englishWord": "but"
+    },
+    {
+      "rank": 22,
+      "targetWord": "τι",
+      "englishWord": "what"
+    },
+    {
+      "rank": 23,
+      "targetWord": "περίπου",
+      "englishWord": "some"
+    },
+    {
+      "rank": 24,
+      "targetWord": "είναι",
+      "englishWord": "is"
+    },
+    {
+      "rank": 25,
+      "targetWord": "το",
+      "englishWord": "it"
+    },
+    {
+      "rank": 26,
+      "targetWord": "σας",
+      "englishWord": "you"
+    },
+    {
+      "rank": 27,
+      "targetWord": "ή",
+      "englishWord": "or"
+    },
+    {
+      "rank": 28,
+      "targetWord": "είχε",
+      "englishWord": "had"
+    },
+    {
+      "rank": 29,
+      "targetWord": "ο",
+      "englishWord": "the"
+    },
+    {
+      "rank": 30,
+      "targetWord": "από",
+      "englishWord": "of"
+    },
+    {
+      "rank": 31,
+      "targetWord": "να",
+      "englishWord": "to"
+    },
+    {
+      "rank": 32,
+      "targetWord": "και",
+      "englishWord": "and"
+    },
+    {
+      "rank": 33,
+      "targetWord": "α",
+      "englishWord": "a"
+    },
+    {
+      "rank": 34,
+      "targetWord": "σε",
+      "englishWord": "in"
+    },
+    {
+      "rank": 35,
+      "targetWord": "εμείς",
+      "englishWord": "we"
+    },
+    {
+      "rank": 36,
+      "targetWord": "μπορεί",
+      "englishWord": "can"
+    },
+    {
+      "rank": 37,
+      "targetWord": "από",
+      "englishWord": "out"
+    },
+    {
+      "rank": 38,
+      "targetWord": "άλλα",
+      "englishWord": "other"
+    },
+    {
+      "rank": 39,
+      "targetWord": "ήταν",
+      "englishWord": "were"
+    },
+    {
+      "rank": 40,
+      "targetWord": "οποίος",
+      "englishWord": "which"
+    },
+    {
+      "rank": 41,
+      "targetWord": "κάνει",
+      "englishWord": "do"
+    },
+    {
+      "rank": 42,
+      "targetWord": "τους",
+      "englishWord": "their"
+    },
+    {
+      "rank": 43,
+      "targetWord": "χρόνος",
+      "englishWord": "time"
+    },
+    {
+      "rank": 44,
+      "targetWord": "αν",
+      "englishWord": "if"
+    },
+    {
+      "rank": 45,
+      "targetWord": "θα",
+      "englishWord": "will"
+    },
+    {
+      "rank": 46,
+      "targetWord": "πως",
+      "englishWord": "how"
+    },
+    {
+      "rank": 47,
+      "targetWord": "είπε",
+      "englishWord": "said"
+    },
+    {
+      "rank": 48,
+      "targetWord": "ένα",
+      "englishWord": "an"
+    },
+    {
+      "rank": 49,
+      "targetWord": "κάθε",
+      "englishWord": "each"
+    },
+    {
+      "rank": 50,
+      "targetWord": "πείτε",
+      "englishWord": "tell"
+    },
+    {
+      "rank": 51,
+      "targetWord": "κάνει",
+      "englishWord": "does"
+    },
+    {
+      "rank": 52,
+      "targetWord": "σετ",
+      "englishWord": "set"
+    },
+    {
+      "rank": 53,
+      "targetWord": "τρία",
+      "englishWord": "three"
+    },
+    {
+      "rank": 54,
+      "targetWord": "θέλω",
+      "englishWord": "want"
+    },
+    {
+      "rank": 55,
+      "targetWord": "αέρας",
+      "englishWord": "air"
+    },
+    {
+      "rank": 56,
+      "targetWord": "καλά",
+      "englishWord": "well"
+    },
+    {
+      "rank": 57,
+      "targetWord": "επίσης,",
+      "englishWord": "also"
+    },
+    {
+      "rank": 58,
+      "targetWord": "παιχνίδι",
+      "englishWord": "play"
+    },
+    {
+      "rank": 59,
+      "targetWord": "μικρό",
+      "englishWord": "small"
+    },
+    {
+      "rank": 60,
+      "targetWord": "τέλος",
+      "englishWord": "end"
+    },
+    {
+      "rank": 61,
+      "targetWord": "που",
+      "englishWord": "put"
+    },
+    {
+      "rank": 62,
+      "targetWord": "σπίτι",
+      "englishWord": "home"
+    },
+    {
+      "rank": 63,
+      "targetWord": "διαβάστε",
+      "englishWord": "read"
+    },
+    {
+      "rank": 64,
+      "targetWord": "χέρι",
+      "englishWord": "hand"
+    },
+    {
+      "rank": 65,
+      "targetWord": "λιμάνι",
+      "englishWord": "port"
+    },
+    {
+      "rank": 66,
+      "targetWord": "μεγάλες",
+      "englishWord": "large"
+    },
+    {
+      "rank": 67,
+      "targetWord": "σημάνει",
+      "englishWord": "spell"
+    },
+    {
+      "rank": 68,
+      "targetWord": "προσθέσετε",
+      "englishWord": "add"
+    },
+    {
+      "rank": 69,
+      "targetWord": "ακόμη",
+      "englishWord": "even"
+    },
+    {
+      "rank": 70,
+      "targetWord": "γη",
+      "englishWord": "land"
+    },
+    {
+      "rank": 71,
+      "targetWord": "εδώ",
+      "englishWord": "here"
+    },
+    {
+      "rank": 72,
+      "targetWord": "πρέπει",
+      "englishWord": "must"
+    },
+    {
+      "rank": 73,
+      "targetWord": "μεγάλος",
+      "englishWord": "big"
+    },
+    {
+      "rank": 74,
+      "targetWord": "υψηλός",
+      "englishWord": "high"
+    },
+    {
+      "rank": 75,
+      "targetWord": "όπως",
+      "englishWord": "such"
+    },
+    {
+      "rank": 76,
+      "targetWord": "ακολουθήστε",
+      "englishWord": "follow"
+    },
+    {
+      "rank": 77,
+      "targetWord": "πράξη",
+      "englishWord": "act"
+    },
+    {
+      "rank": 78,
+      "targetWord": "γιατί",
+      "englishWord": "why"
+    },
+    {
+      "rank": 79,
+      "targetWord": "ρωτήστε",
+      "englishWord": "ask"
+    },
+    {
+      "rank": 80,
+      "targetWord": "άνδρες",
+      "englishWord": "men"
+    },
+    {
+      "rank": 81,
+      "targetWord": "αλλαγή",
+      "englishWord": "change"
+    },
+    {
+      "rank": 82,
+      "targetWord": "πήγε",
+      "englishWord": "went"
+    },
+    {
+      "rank": 83,
+      "targetWord": "φως",
+      "englishWord": "light"
+    },
+    {
+      "rank": 84,
+      "targetWord": "είδος",
+      "englishWord": "kind"
+    },
+    {
+      "rank": 85,
+      "targetWord": "απενεργοποίηση",
+      "englishWord": "off"
+    },
+    {
+      "rank": 86,
+      "targetWord": "ανάγκη",
+      "englishWord": "need"
+    },
+    {
+      "rank": 87,
+      "targetWord": "σπίτι",
+      "englishWord": "house"
+    },
+    {
+      "rank": 88,
+      "targetWord": "εικόνα",
+      "englishWord": "picture"
+    },
+    {
+      "rank": 89,
+      "targetWord": "δοκιμάστε",
+      "englishWord": "try"
+    },
+    {
+      "rank": 90,
+      "targetWord": "μας",
+      "englishWord": "us"
+    },
+    {
+      "rank": 91,
+      "targetWord": "πάλι",
+      "englishWord": "again"
+    },
+    {
+      "rank": 92,
+      "targetWord": "ζώο",
+      "englishWord": "animal"
+    },
+    {
+      "rank": 93,
+      "targetWord": "σημείο",
+      "englishWord": "point"
+    },
+    {
+      "rank": 94,
+      "targetWord": "μητέρα",
+      "englishWord": "mother"
+    },
+    {
+      "rank": 95,
+      "targetWord": "κόσμο",
+      "englishWord": "world"
+    },
+    {
+      "rank": 96,
+      "targetWord": "κοντά",
+      "englishWord": "near"
+    },
+    {
+      "rank": 97,
+      "targetWord": "οικοδομήσουμε",
+      "englishWord": "build"
+    },
+    {
+      "rank": 98,
+      "targetWord": "αυτο",
+      "englishWord": "self"
+    },
+    {
+      "rank": 99,
+      "targetWord": "γη",
+      "englishWord": "earth"
+    },
+    {
+      "rank": 100,
+      "targetWord": "πατέρας",
+      "englishWord": "father"
+    },
+    {
+      "rank": 101,
+      "targetWord": "κάθε",
+      "englishWord": "any"
+    },
+    {
+      "rank": 102,
+      "targetWord": "νέα",
+      "englishWord": "new"
+    },
+    {
+      "rank": 103,
+      "targetWord": "εργασία",
+      "englishWord": "work"
+    },
+    {
+      "rank": 104,
+      "targetWord": "μέρος",
+      "englishWord": "part"
+    },
+    {
+      "rank": 105,
+      "targetWord": "λαμβάνουν",
+      "englishWord": "take"
+    },
+    {
+      "rank": 106,
+      "targetWord": "πάρετε",
+      "englishWord": "get"
+    },
+    {
+      "rank": 107,
+      "targetWord": "θέση",
+      "englishWord": "place"
+    },
+    {
+      "rank": 108,
+      "targetWord": "που",
+      "englishWord": "made"
+    },
+    {
+      "rank": 109,
+      "targetWord": "ζω",
+      "englishWord": "live"
+    },
+    {
+      "rank": 110,
+      "targetWord": "όπου",
+      "englishWord": "where"
+    },
+    {
+      "rank": 111,
+      "targetWord": "μετά",
+      "englishWord": "after"
+    },
+    {
+      "rank": 112,
+      "targetWord": "πίσω",
+      "englishWord": "back"
+    },
+    {
+      "rank": 113,
+      "targetWord": "λίγο",
+      "englishWord": "little"
+    },
+    {
+      "rank": 114,
+      "targetWord": "μόνο",
+      "englishWord": "only"
+    },
+    {
+      "rank": 115,
+      "targetWord": "γύρος",
+      "englishWord": "round"
+    },
+    {
+      "rank": 116,
+      "targetWord": "άνθρωπος",
+      "englishWord": "man"
+    },
+    {
+      "rank": 117,
+      "targetWord": "έτους",
+      "englishWord": "year"
+    },
+    {
+      "rank": 118,
+      "targetWord": "ήρθε",
+      "englishWord": "came"
+    },
+    {
+      "rank": 119,
+      "targetWord": "σόου",
+      "englishWord": "show"
+    },
+    {
+      "rank": 120,
+      "targetWord": "κάθε",
+      "englishWord": "every"
+    },
+    {
+      "rank": 121,
+      "targetWord": "καλός",
+      "englishWord": "good"
+    },
+    {
+      "rank": 122,
+      "targetWord": "μου",
+      "englishWord": "me"
+    },
+    {
+      "rank": 123,
+      "targetWord": "δώσει",
+      "englishWord": "give"
+    },
+    {
+      "rank": 124,
+      "targetWord": "μας",
+      "englishWord": "our"
+    },
+    {
+      "rank": 125,
+      "targetWord": "υπό",
+      "englishWord": "under"
+    },
+    {
+      "rank": 126,
+      "targetWord": "όνομα",
+      "englishWord": "name"
+    },
+    {
+      "rank": 127,
+      "targetWord": "πολύ",
+      "englishWord": "very"
+    },
+    {
+      "rank": 128,
+      "targetWord": "μέσω",
+      "englishWord": "through"
+    },
+    {
+      "rank": 129,
+      "targetWord": "μόνο",
+      "englishWord": "just"
+    },
+    {
+      "rank": 130,
+      "targetWord": "μορφή",
+      "englishWord": "form"
+    },
+    {
+      "rank": 131,
+      "targetWord": "φράση",
+      "englishWord": "sentence"
+    },
+    {
+      "rank": 132,
+      "targetWord": "μεγάλος",
+      "englishWord": "great"
+    },
+    {
+      "rank": 133,
+      "targetWord": "νομίζω",
+      "englishWord": "think"
+    },
+    {
+      "rank": 134,
+      "targetWord": "λένε",
+      "englishWord": "say"
+    },
+    {
+      "rank": 135,
+      "targetWord": "βοηθήσει",
+      "englishWord": "help"
+    },
+    {
+      "rank": 136,
+      "targetWord": "χαμηλής",
+      "englishWord": "low"
+    },
+    {
+      "rank": 137,
+      "targetWord": "γραμμή",
+      "englishWord": "line"
+    },
+    {
+      "rank": 138,
+      "targetWord": "διαφέρουν",
+      "englishWord": "differ"
+    },
+    {
+      "rank": 139,
+      "targetWord": "στροφή",
+      "englishWord": "turn"
+    },
+    {
+      "rank": 140,
+      "targetWord": "αιτία",
+      "englishWord": "cause"
+    },
+    {
+      "rank": 141,
+      "targetWord": "πολύ",
+      "englishWord": "much"
+    },
+    {
+      "rank": 142,
+      "targetWord": "σημαίνει",
+      "englishWord": "mean"
+    },
+    {
+      "rank": 143,
+      "targetWord": "πριν",
+      "englishWord": "before"
+    },
+    {
+      "rank": 144,
+      "targetWord": "κίνηση",
+      "englishWord": "move"
+    },
+    {
+      "rank": 145,
+      "targetWord": "δεξιά",
+      "englishWord": "right"
+    },
+    {
+      "rank": 146,
+      "targetWord": "αγόρι",
+      "englishWord": "boy"
+    },
+    {
+      "rank": 147,
+      "targetWord": "γριά",
+      "englishWord": "old"
+    },
+    {
+      "rank": 148,
+      "targetWord": "πολύ",
+      "englishWord": "too"
+    },
+    {
+      "rank": 149,
+      "targetWord": "ίδιο",
+      "englishWord": "same"
+    },
+    {
+      "rank": 150,
+      "targetWord": "που",
+      "englishWord": "she"
+    },
+    {
+      "rank": 151,
+      "targetWord": "όλα",
+      "englishWord": "all"
+    },
+    {
+      "rank": 152,
+      "targetWord": "εκεί",
+      "englishWord": "there"
+    },
+    {
+      "rank": 153,
+      "targetWord": "όταν",
+      "englishWord": "when"
+    },
+    {
+      "rank": 154,
+      "targetWord": "επάνω",
+      "englishWord": "up"
+    },
+    {
+      "rank": 155,
+      "targetWord": "χρήση",
+      "englishWord": "use"
+    },
+    {
+      "rank": 156,
+      "targetWord": "σας",
+      "englishWord": "your"
+    },
+    {
+      "rank": 157,
+      "targetWord": "τρόπος",
+      "englishWord": "way"
+    },
+    {
+      "rank": 158,
+      "targetWord": "περίπου",
+      "englishWord": "about"
+    },
+    {
+      "rank": 159,
+      "targetWord": "πολλά",
+      "englishWord": "many"
+    },
+    {
+      "rank": 160,
+      "targetWord": "τότε",
+      "englishWord": "then"
+    },
+    {
+      "rank": 161,
+      "targetWord": "τους",
+      "englishWord": "them"
+    },
+    {
+      "rank": 162,
+      "targetWord": "γράφω",
+      "englishWord": "write"
+    },
+    {
+      "rank": 163,
+      "targetWord": "θα",
+      "englishWord": "would"
+    },
+    {
+      "rank": 164,
+      "targetWord": "σαν",
+      "englishWord": "like"
+    },
+    {
+      "rank": 165,
+      "targetWord": "έτσι",
+      "englishWord": "so"
+    },
+    {
+      "rank": 166,
+      "targetWord": "αυτά",
+      "englishWord": "these"
+    },
+    {
+      "rank": 167,
+      "targetWord": "της",
+      "englishWord": "her"
+    },
+    {
+      "rank": 168,
+      "targetWord": "μακρά",
+      "englishWord": "long"
+    },
+    {
+      "rank": 169,
+      "targetWord": "κάνω",
+      "englishWord": "make"
+    },
+    {
+      "rank": 170,
+      "targetWord": "πράγμα",
+      "englishWord": "thing"
+    },
+    {
+      "rank": 171,
+      "targetWord": "βλέπω",
+      "englishWord": "see"
+    },
+    {
+      "rank": 172,
+      "targetWord": "τον",
+      "englishWord": "him"
+    },
+    {
+      "rank": 173,
+      "targetWord": "δυο",
+      "englishWord": "two"
+    },
+    {
+      "rank": 174,
+      "targetWord": "έχει",
+      "englishWord": "has"
+    },
+    {
+      "rank": 175,
+      "targetWord": "δείτε",
+      "englishWord": "look"
+    },
+    {
+      "rank": 176,
+      "targetWord": "περισσότερα",
+      "englishWord": "more"
+    },
+    {
+      "rank": 177,
+      "targetWord": "ημέρα",
+      "englishWord": "day"
+    },
+    {
+      "rank": 178,
+      "targetWord": "θα μπορούσε",
+      "englishWord": "could"
+    },
+    {
+      "rank": 179,
+      "targetWord": "πηγαίνω",
+      "englishWord": "go"
+    },
+    {
+      "rank": 180,
+      "targetWord": "έρχονται",
+      "englishWord": "come"
+    },
+    {
+      "rank": 181,
+      "targetWord": "έκανε",
+      "englishWord": "did"
+    },
+    {
+      "rank": 182,
+      "targetWord": "αριθμός",
+      "englishWord": "number"
+    },
+    {
+      "rank": 183,
+      "targetWord": "ήχος",
+      "englishWord": "sound"
+    },
+    {
+      "rank": 184,
+      "targetWord": "δεν",
+      "englishWord": "no"
+    },
+    {
+      "rank": 185,
+      "targetWord": "πλέον",
+      "englishWord": "most"
+    },
+    {
+      "rank": 186,
+      "targetWord": "άνθρωποι",
+      "englishWord": "people"
+    },
+    {
+      "rank": 187,
+      "targetWord": "μου",
+      "englishWord": "my"
+    },
+    {
+      "rank": 188,
+      "targetWord": "πέρα",
+      "englishWord": "over"
+    },
+    {
+      "rank": 189,
+      "targetWord": "ξέρετε",
+      "englishWord": "know"
+    },
+    {
+      "rank": 190,
+      "targetWord": "νερό",
+      "englishWord": "water"
+    },
+    {
+      "rank": 191,
+      "targetWord": "από",
+      "englishWord": "than"
+    },
+    {
+      "rank": 192,
+      "targetWord": "κλήση",
+      "englishWord": "call"
+    },
+    {
+      "rank": 193,
+      "targetWord": "πρώτη",
+      "englishWord": "first"
+    },
+    {
+      "rank": 194,
+      "targetWord": "που",
+      "englishWord": "who"
+    },
+    {
+      "rank": 195,
+      "targetWord": "μπορεί",
+      "englishWord": "may"
+    },
+    {
+      "rank": 196,
+      "targetWord": "κάτω",
+      "englishWord": "down"
+    },
+    {
+      "rank": 197,
+      "targetWord": "πλευρά",
+      "englishWord": "side"
+    },
+    {
+      "rank": 198,
+      "targetWord": "ήταν",
+      "englishWord": "been"
+    },
+    {
+      "rank": 199,
+      "targetWord": "τώρα",
+      "englishWord": "now"
+    },
+    {
+      "rank": 200,
+      "targetWord": "βρείτε",
+      "englishWord": "find"
+    },
+    {
+      "rank": 201,
+      "targetWord": "κεφάλι",
+      "englishWord": "head"
+    },
+    {
+      "rank": 202,
+      "targetWord": "στάση",
+      "englishWord": "stand"
+    },
+    {
+      "rank": 203,
+      "targetWord": "δική",
+      "englishWord": "own"
+    },
+    {
+      "rank": 204,
+      "targetWord": "σελίδα",
+      "englishWord": "page"
+    },
+    {
+      "rank": 205,
+      "targetWord": "πρέπει",
+      "englishWord": "should"
+    },
+    {
+      "rank": 206,
+      "targetWord": "χώρα",
+      "englishWord": "country"
+    },
+    {
+      "rank": 207,
+      "targetWord": "βρέθηκαν",
+      "englishWord": "found"
+    },
+    {
+      "rank": 208,
+      "targetWord": "απάντηση",
+      "englishWord": "answer"
+    },
+    {
+      "rank": 209,
+      "targetWord": "σχολείο",
+      "englishWord": "school"
+    },
+    {
+      "rank": 210,
+      "targetWord": "μεγαλώνουν",
+      "englishWord": "grow"
+    },
+    {
+      "rank": 211,
+      "targetWord": "μελέτη",
+      "englishWord": "study"
+    },
+    {
+      "rank": 212,
+      "targetWord": "ακόμα",
+      "englishWord": "still"
+    },
+    {
+      "rank": 213,
+      "targetWord": "μάθετε",
+      "englishWord": "learn"
+    },
+    {
+      "rank": 214,
+      "targetWord": "φυτό",
+      "englishWord": "plant"
+    },
+    {
+      "rank": 215,
+      "targetWord": "κάλυμμα",
+      "englishWord": "cover"
+    },
+    {
+      "rank": 216,
+      "targetWord": "τροφίμων",
+      "englishWord": "food"
+    },
+    {
+      "rank": 217,
+      "targetWord": "ήλιος",
+      "englishWord": "sun"
+    },
+    {
+      "rank": 218,
+      "targetWord": "τέσσερα",
+      "englishWord": "four"
+    },
+    {
+      "rank": 219,
+      "targetWord": "μεταξύ",
+      "englishWord": "between"
+    },
+    {
+      "rank": 220,
+      "targetWord": "κατάσταση",
+      "englishWord": "state"
+    },
+    {
+      "rank": 221,
+      "targetWord": "κρατήσετε",
+      "englishWord": "keep"
+    },
+    {
+      "rank": 222,
+      "targetWord": "μάτι",
+      "englishWord": "eye"
+    },
+    {
+      "rank": 223,
+      "targetWord": "ποτέ",
+      "englishWord": "never"
+    },
+    {
+      "rank": 224,
+      "targetWord": "τελευταία",
+      "englishWord": "last"
+    },
+    {
+      "rank": 225,
+      "targetWord": "ας",
+      "englishWord": "let"
+    },
+    {
+      "rank": 226,
+      "targetWord": "σκέψης",
+      "englishWord": "thought"
+    },
+    {
+      "rank": 227,
+      "targetWord": "πόλη",
+      "englishWord": "city"
+    },
+    {
+      "rank": 228,
+      "targetWord": "δέντρο",
+      "englishWord": "tree"
+    },
+    {
+      "rank": 229,
+      "targetWord": "σταυρός",
+      "englishWord": "cross"
+    },
+    {
+      "rank": 230,
+      "targetWord": "αγρόκτημα",
+      "englishWord": "farm"
+    },
+    {
+      "rank": 231,
+      "targetWord": "σκληρά",
+      "englishWord": "hard"
+    },
+    {
+      "rank": 232,
+      "targetWord": "αρχή",
+      "englishWord": "start"
+    },
+    {
+      "rank": 233,
+      "targetWord": "μπορούσε",
+      "englishWord": "might"
+    },
+    {
+      "rank": 234,
+      "targetWord": "ιστορία",
+      "englishWord": "story"
+    },
+    {
+      "rank": 235,
+      "targetWord": "πριόνι",
+      "englishWord": "saw"
+    },
+    {
+      "rank": 236,
+      "targetWord": "σήμερα",
+      "englishWord": "far"
+    },
+    {
+      "rank": 237,
+      "targetWord": "θάλασσα",
+      "englishWord": "sea"
+    },
+    {
+      "rank": 238,
+      "targetWord": "κλήρωση",
+      "englishWord": "draw"
+    },
+    {
+      "rank": 239,
+      "targetWord": "αριστερά",
+      "englishWord": "left"
+    },
+    {
+      "rank": 240,
+      "targetWord": "αργά",
+      "englishWord": "late"
+    },
+    {
+      "rank": 241,
+      "targetWord": "τρέχει",
+      "englishWord": "run"
+    },
+    {
+      "rank": 242,
+      "targetWord": "μη",
+      "englishWord": "don’t"
+    },
+    {
+      "rank": 243,
+      "targetWord": "ενώ",
+      "englishWord": "while"
+    },
+    {
+      "rank": 244,
+      "targetWord": "τύπου",
+      "englishWord": "press"
+    },
+    {
+      "rank": 245,
+      "targetWord": "κοντά",
+      "englishWord": "close"
+    },
+    {
+      "rank": 246,
+      "targetWord": "νύχτα",
+      "englishWord": "night"
+    },
+    {
+      "rank": 247,
+      "targetWord": "πραγματική",
+      "englishWord": "real"
+    },
+    {
+      "rank": 248,
+      "targetWord": "ζωή",
+      "englishWord": "life"
+    },
+    {
+      "rank": 249,
+      "targetWord": "λίγα",
+      "englishWord": "few"
+    },
+    {
+      "rank": 250,
+      "targetWord": "βόρεια",
+      "englishWord": "north"
+    },
+    {
+      "rank": 251,
+      "targetWord": "βιβλίο",
+      "englishWord": "book"
+    },
+    {
+      "rank": 252,
+      "targetWord": "φέρουν",
+      "englishWord": "carry"
+    },
+    {
+      "rank": 253,
+      "targetWord": "πήρε",
+      "englishWord": "took"
+    },
+    {
+      "rank": 254,
+      "targetWord": "επιστήμη",
+      "englishWord": "science"
+    },
+    {
+      "rank": 255,
+      "targetWord": "φάτε",
+      "englishWord": "eat"
+    },
+    {
+      "rank": 256,
+      "targetWord": "δωμάτιο",
+      "englishWord": "room"
+    },
+    {
+      "rank": 257,
+      "targetWord": "φίλος",
+      "englishWord": "friend"
+    },
+    {
+      "rank": 258,
+      "targetWord": "άρχισε",
+      "englishWord": "began"
+    },
+    {
+      "rank": 259,
+      "targetWord": "ιδέα",
+      "englishWord": "idea"
+    },
+    {
+      "rank": 260,
+      "targetWord": "ψάρι",
+      "englishWord": "fish"
+    },
+    {
+      "rank": 261,
+      "targetWord": "βουνό",
+      "englishWord": "mountain"
+    },
+    {
+      "rank": 262,
+      "targetWord": "στάση",
+      "englishWord": "stop"
+    },
+    {
+      "rank": 263,
+      "targetWord": "φορά",
+      "englishWord": "once"
+    },
+    {
+      "rank": 264,
+      "targetWord": "βάση",
+      "englishWord": "base"
+    },
+    {
+      "rank": 265,
+      "targetWord": "ακούστε",
+      "englishWord": "hear"
+    },
+    {
+      "rank": 266,
+      "targetWord": "άλογο",
+      "englishWord": "horse"
+    },
+    {
+      "rank": 267,
+      "targetWord": "κόψιμο",
+      "englishWord": "cut"
+    },
+    {
+      "rank": 268,
+      "targetWord": "βέβαιος",
+      "englishWord": "sure"
+    },
+    {
+      "rank": 269,
+      "targetWord": "παρακολουθήσετε",
+      "englishWord": "watch"
+    },
+    {
+      "rank": 270,
+      "targetWord": "χρώμα",
+      "englishWord": "color"
+    },
+    {
+      "rank": 271,
+      "targetWord": "πρόσωπο",
+      "englishWord": "face"
+    },
+    {
+      "rank": 272,
+      "targetWord": "ξύλο",
+      "englishWord": "wood"
+    },
+    {
+      "rank": 273,
+      "targetWord": "κύρια",
+      "englishWord": "main"
+    },
+    {
+      "rank": 274,
+      "targetWord": "ανοιχτή",
+      "englishWord": "open"
+    },
+    {
+      "rank": 275,
+      "targetWord": "φαίνεται",
+      "englishWord": "seem"
+    },
+    {
+      "rank": 276,
+      "targetWord": "μαζί",
+      "englishWord": "together"
+    },
+    {
+      "rank": 277,
+      "targetWord": "επόμενος",
+      "englishWord": "next"
+    },
+    {
+      "rank": 278,
+      "targetWord": "λευκό",
+      "englishWord": "white"
+    },
+    {
+      "rank": 279,
+      "targetWord": "παιδιά",
+      "englishWord": "children"
+    },
+    {
+      "rank": 280,
+      "targetWord": "αρχίσει",
+      "englishWord": "begin"
+    },
+    {
+      "rank": 281,
+      "targetWord": "πήρε",
+      "englishWord": "got"
+    },
+    {
+      "rank": 282,
+      "targetWord": "με τα πόδια",
+      "englishWord": "walk"
+    },
+    {
+      "rank": 283,
+      "targetWord": "παράδειγμα",
+      "englishWord": "example"
+    },
+    {
+      "rank": 284,
+      "targetWord": "ευκολία",
+      "englishWord": "ease"
+    },
+    {
+      "rank": 285,
+      "targetWord": "χαρτί",
+      "englishWord": "paper"
+    },
+    {
+      "rank": 286,
+      "targetWord": "ομάδα",
+      "englishWord": "group"
+    },
+    {
+      "rank": 287,
+      "targetWord": "πάντοτε",
+      "englishWord": "always"
+    },
+    {
+      "rank": 288,
+      "targetWord": "μουσική",
+      "englishWord": "music"
+    },
+    {
+      "rank": 289,
+      "targetWord": "εκείνοι",
+      "englishWord": "those"
+    },
+    {
+      "rank": 290,
+      "targetWord": "δύο",
+      "englishWord": "both"
+    },
+    {
+      "rank": 291,
+      "targetWord": "σήμα",
+      "englishWord": "mark"
+    },
+    {
+      "rank": 292,
+      "targetWord": "συχνά",
+      "englishWord": "often"
+    },
+    {
+      "rank": 293,
+      "targetWord": "γράμμα",
+      "englishWord": "letter"
+    },
+    {
+      "rank": 294,
+      "targetWord": "μέχρι",
+      "englishWord": "until"
+    },
+    {
+      "rank": 295,
+      "targetWord": "μίλι",
+      "englishWord": "mile"
+    },
+    {
+      "rank": 296,
+      "targetWord": "ποτάμι",
+      "englishWord": "river"
+    },
+    {
+      "rank": 297,
+      "targetWord": "αυτοκίνητο",
+      "englishWord": "car"
+    },
+    {
+      "rank": 298,
+      "targetWord": "πόδια",
+      "englishWord": "feet"
+    },
+    {
+      "rank": 299,
+      "targetWord": "φροντίδα",
+      "englishWord": "care"
+    },
+    {
+      "rank": 300,
+      "targetWord": "δεύτερη",
+      "englishWord": "second"
+    }
   ]
 }
