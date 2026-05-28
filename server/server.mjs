@@ -32,7 +32,6 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: { 
-    secure : true,
     sameSite : "lax",
     maxAge: SESSION_MAX_AGE },
 }));
