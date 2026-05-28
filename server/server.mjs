@@ -31,7 +31,10 @@ app.use(session({
   secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: SESSION_MAX_AGE },
+  cookie: { 
+    secure = true,
+    sameSite = "lax",
+    maxAge: SESSION_MAX_AGE },
 }));
 
 // Make user data available to all views
