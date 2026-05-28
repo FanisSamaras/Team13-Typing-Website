@@ -2,7 +2,7 @@ import { SELECTORS } from './config.mjs';
 import { gameState } from './state.mjs';
 import { getInputField } from './utils.mjs';
 import { loadContent } from './api.mjs';
-import { checkTypingSpace, validateRealtime, restartGame } from './input.mjs';
+import { checkTypingSpace, checkTypingSpaceBeforeInput, validateRealtime, restartGame } from './input.mjs';
 
 function initializeFormListener() {
   const form = document.querySelector(SELECTORS.form);
@@ -19,6 +19,7 @@ function initializeFormListener() {
 function initializeInputListeners() {
   const inputField = getInputField();
   inputField.addEventListener('keydown', checkTypingSpace);
+  inputField.addEventListener('beforeinput', checkTypingSpaceBeforeInput);
   inputField.addEventListener('input', validateRealtime);
   inputField.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {

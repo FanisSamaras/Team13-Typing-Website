@@ -6,8 +6,14 @@ import { advanceWord } from './game.mjs';
 
 export function validateRealtime() {
   const inputField = getInputField();
-  const normalizedInput = normalizeText(inputField.value);
+  const rawValue = inputField.value;
+  const normalizedInput = normalizeText(rawValue);
   const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex]);
+
+  if (rawValue.endsWith(' ') && normalizedInput === currentWord) {
+    advanceWord(rawValue.trim());
+    return;
+  }
 
   const isCorrect = checkInputCorrectness(normalizedInput, currentWord);
 
@@ -16,15 +22,15 @@ export function validateRealtime() {
     gameState.isTyping = true;
   }
 
-  updateTypingAccuracy(inputField.value);
+  updateTypingAccuracy(rawValue);
 
   if (gameState.currentWordIndex === gameState.wordArray.length - 1 && normalizedInput === currentWord) {
-    advanceWord(inputField.value);
+    advanceWord(rawValue);
     return;
   }
 
   inputField.style.borderColor = normalizedInput.length === 0 ? '' : (isCorrect ? 'green' : 'red');
-  renderTextWithInput(inputField.value);
+  renderTextWithInput(rawValue);
 }
 
 export function checkInputCorrectness(input, word) {
@@ -37,11 +43,11 @@ export function checkInputCorrectness(input, word) {
   return true;
 }
 
-export function checkTypingSpace(e) {
-  if (e.key !== ' ') {
-    return;
-  }
+function isSpaceKeyEvent(e) {
+  return e.key === ' ' || e.key === 'Spacebar' || e.code === 'Space' || e.keyCode === 32;
+}
 
+function handleSpaceSubmission(e) {
   const input = normalizeText(getInputField().value);
   const currentWord = normalizeText(gameState.wordArray[gameState.currentWordIndex]);
 
@@ -53,6 +59,22 @@ export function checkTypingSpace(e) {
 
   e.preventDefault();
   advanceWord(getInputField().value);
+}
+
+export function checkTypingSpace(e) {
+  if (!isSpaceKeyEvent(e)) {
+    return;
+  }
+
+  handleSpaceSubmission(e);
+}
+
+export function checkTypingSpaceBeforeInput(e) {
+  if (e.inputType !== 'insertText' || e.data !== ' ') {
+    return;
+  }
+
+  handleSpaceSubmission(e);
 }
 
 export function triggerShakeEffect() {
